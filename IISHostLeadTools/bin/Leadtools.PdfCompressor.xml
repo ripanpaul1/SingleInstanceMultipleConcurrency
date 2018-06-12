@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Leadtools.PdfCompressor</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressorEngine">
+      <summary>Provides the functionality to create a PDF document with or without Mixed Raster Content (MRC) segmentation options.</summary>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.#ctor">
+      <summary>Initializes the PdfCompressorEngine SDK.</summary>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.Insert(Leadtools.RasterImage)">
+      <summary>Compresses the specified image, without segmenting it, and inserts the image in the PDF file.</summary>
+      <param name="image">Image to be inserted in the PDF file.</param>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.Insert(Leadtools.RasterImage,Leadtools.PdfCompressor.PdfCompressorOptions)">
+      <summary>Segments the specified image using Mixed Raster Content (MRC segmentation) and then compresses it and inserts it into the PDF file.</summary>
+      <param name="image">Image to be inserted into the PDF file.</param>
+      <param name="options">The PdfCompressorOptions structure that contains the options to be used to write the image to the PDF file.</param>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.InsertSegments(Leadtools.RasterImage,Leadtools.PdfCompressor.PdfCompressorSegmentsInfo[],System.Boolean,Leadtools.RasterColor)">
+      <summary>Applies the input Segments, compresses it, and inserts the image in the PDF file. This is provided for advanced usage.</summary>
+      <param name="image">Image to be inserted in the PDF file.</param>
+      <param name="segmentInfo">Contains information about all of the segments. PdfCompressorSegmentsInfo</param>
+      <param name="isThereBackGround">Determines whether to use the average backgroundColor for all segments with background type or to use each color of each background segment.</param>
+      <param name="backgroundColor">Average background color, to be used for all backgrounds segments if \isThereBackGround\ is true.</param>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.SetCompression(Leadtools.PdfCompressor.PdfCompressorCompressionTypes)">
+      <summary>Sets the compression type to be used on each image segment inserted into the PDF file.</summary>
+      <param name="CompressionTypes">Provides information about PDF Compression options PdfCompressorCompressionTypes.</param>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.Write(System.IO.Stream)">
+      <summary>Writes the created file from memory to a .NET stream.</summary>
+      <param name="outputStream">The output stream to be saved.</param>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.Write(System.String)">
+      <summary>Writes the created file from memory to the file system using the path provided.</summary>
+      <param name="outputFileName">The name of the output file to be saved.</param>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.Dispose">
+      <summary>Releases all resources used by this object.</summary>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.Dispose(System.Boolean)">
+      <summary>Releases all resources used by this object.</summary>
+      <param name="disposing">true, if this method was called as a result of calling Dispose.</param>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorEngine.Finalize">
+      <summary>Disposes of the PdfCompressorEngine SDK.</summary>
+    </member>
+    <member name="E:Leadtools.PdfCompressor.PdfCompressorEngine.SegmentImage">
+      <summary>Optional delegate method for additional processing.</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressorSegmentImageEventArgs">
+      <summary>Enables the user to approve or cancel the addition of any segment to the document.</summary>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorSegmentImageEventArgs.#ctor(System.Int32,Leadtools.PdfCompressor.PdfCompressorSegmentsInfo)">
+      <summary>Initializes a new PdfCompressorSegmentImageEventArgs class object with default parameters.</summary>
+      <param name="page">Current page number</param>
+      <param name="segment">Segment info PdfCompressorSegmentsInfo</param>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorSegmentImageEventArgs.Cancel">
+      <summary>Gets or sets a value that indicates whether a segment should be added to the document.</summary>
+      <value>true if the segment should NOT be added to the PDF file; false if the segment is to be added to the PDF file.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorSegmentImageEventArgs.Page">
+      <summary>Gets the index of the page on which the segment is being written.</summary>
+      <value>The index of the page on which the segment is being written.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorSegmentImageEventArgs.Segment">
+      <summary>Gets information about the segment.</summary>
+      <value>Information about the segment.</value>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressorSegmentsInfo">
+      <summary>Provides information about the bitmap segment.</summary>
+    </member>
+    <member name="M:Leadtools.PdfCompressor.PdfCompressorSegmentsInfo.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorSegmentsInfo.Colors">
+      <summary>Gets or sets an array of colors for a segment.</summary>
+      <value>An array of colors for a segment.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorSegmentsInfo.Rectangle">
+      <summary>Gets or sets the dimensions for a segment.</summary>
+      <value>The dimensions for a segment.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorSegmentsInfo.Type">
+      <summary>Gets or sets a value that indicates the segment type.</summary>
+      <value>A value that indicates the segment type.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorSegmentsInfo.ValidColors">
+      <summary>Gets or sets a value that indicates the number of colors contained in a segment.</summary>
+      <value>A value that indicates the number of colors contained in a segment.</value>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.EnabledCompressionsFlags">
+      <summary>Flags that indicate which fields (PdfCompressor1BitCompression, PdfCompressor2BitCompression and PdfCompressorPictureCompression) will be read and set and which fields will be ignored.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.EnabledCompressionsFlags.None">
+      <summary>No compression is set, use default compressions.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.EnabledCompressionsFlags.EnableOneBit">
+      <summary>Enables setting 1BPP Compression type.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.EnabledCompressionsFlags.EnableTwoBit">
+      <summary>Enables setting 2BPP Compression type.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.EnabledCompressionsFlags.EnablePicture">
+      <summary>Enables setting Picture Compression type.</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressor1BitCompression">
+      <summary>Flags that specify the Compression type to be used with 1 bit images.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressor1BitCompression.Zip1Bit">
+      <summary>Use Zip Compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressor1BitCompression.Lzw1Bit">
+      <summary>Use LZW Compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressor1BitCompression.FaxG31D">
+      <summary>Use FAX CCITT G3 1D Compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressor1BitCompression.FaxG32D">
+      <summary>Use FAX CCITT G3 2D Compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressor1BitCompression.FaxG4">
+      <summary>Use FAX CCITT G4 Compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressor1BitCompression.Jbig2">
+      <summary>Use JBIG2 Compression.</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressor2BitCompression">
+      <summary>Flags that specify the Compression type to be used with 2 bits images.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressor2BitCompression.Zip2Bit">
+      <summary>Use Zip Compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressor2BitCompression.Lzw2Bit">
+      <summary>Use LZW Compression.</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressorImageQuality">
+      <summary>Flags that identify the quality of the source image when working with the PDF Compressor.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorImageQuality.Unknown">
+      <summary>Unknown image quality. Use default handling.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorImageQuality.Noisy">
+      <summary>The source image is noisy.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorImageQuality.Scanned">
+      <summary>The source image is a scanned image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorImageQuality.Printed">
+      <summary>The source image is a printed document.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorImageQuality.ComputerGenerated">
+      <summary>The source image is a high quality computer-generated image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorImageQuality.Photo">
+      <summary>The source image is a high quality photo image; for example, from a digital camera.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorImageQuality.User">
+      <summary>The quality is set manually. This flag is for advanced users.</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressorOutputQuality">
+      <summary>Flags that identify the quality of the output image when working with the PDF Compressor.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorOutputQuality.Auto">
+      <summary>Choose the quality of the output automatically.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorOutputQuality.Poor">
+      <summary>Poor output quality with best compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorOutputQuality.Average">
+      <summary>Average output quality with average compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorOutputQuality.Good">
+      <summary>Good output quality with good compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorOutputQuality.Excellent">
+      <summary>Excellent output quality with poor compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorOutputQuality.User">
+      <summary>The user detects the output quality. This flag is for advanced users.</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressorPictureCompression">
+      <summary>Flags that identify the Compression type to be used for Picture images.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.JpgPic">
+      <summary>Use JPEG 444 compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.Jpg422Pic">
+      <summary>Use JPEG 422 compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.Jpg411Pic">
+      <summary>Use JPEG 411 compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.JpgProgressivePic">
+      <summary>Use JPEG 444 Progressive compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.Jpg422ProgressivePic">
+      <summary>Use JPEG 422 Progressive compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.Jpg411ProgressivePic">
+      <summary>Use JPEG 411 Progressive compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.ZipPic">
+      <summary>Use ZIP compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.LzwPic">
+      <summary>Use LZW compression.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.PdfCompressorPictureCompression.JpxPic">
+      <summary>Use JPEG 2000 Part 2 (JPX).</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.SegmentationOptionsFlags">
+      <summary>Flags that identify certain segmentation options.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentationOptionsFlags.FavorOneBit">
+      <summary>Favor 1 bit images whenever there's minimum data loss.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentationOptionsFlags.WithBackground">
+      <summary>With Background images. Search for background within the image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentationOptionsFlags.FavorTwoBit">
+      <summary>Favor 2 bit images whenever there's minimum data loss.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentationOptionsFlags.ForceOneBit">
+      <summary>Force 1 bit images whenever data loss is within accepted range.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentationOptionsFlags.ForceTwoBit">
+      <summary>Force 2 bit images whenever data loss is within accepted range.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentationOptionsFlags.WithoutBackground">
+      <summary>Without Background images.</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.SegmentTypeFlags">
+      <summary>Flags that identify the type of the segment.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.Background">
+      <summary>The segment uses one color that represents the image background.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.OneBit">
+      <summary>The segment is a 1BPP image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.OnBitBW">
+      <summary>The segment is a 1BPP black and white image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.TwoBit">
+      <summary>The segment is a 2BPP image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.TwoBitGray">
+      <summary>The segment is a 2BPP gray scale image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.Gray">
+      <summary>The segment is a gray scale image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.Picture">
+      <summary>The segment is a picture.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.TwoBitBW">
+      <summary>The segment is a 2BPP black and white image.</summary>
+    </member>
+    <member name="F:Leadtools.PdfCompressor.SegmentTypeFlags.OneColor">
+      <summary>The segment has only one color.</summary>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressorCompressionTypes">
+      <summary>Provides information about the PDF Compression options.</summary>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorCompressionTypes.Comp1Bit">
+      <summary>Gets or sets the compression to be used for 1BPP images. The default compression for 1BPP segments is Jbig2.</summary>
+      <value>The compression to be used for 1BPP images. The default compression for 1BPP segments is Jbig2.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorCompressionTypes.Comp2Bit">
+      <summary>Gets or sets the compression to be used for 2BPP images. The default compression for 2BPP segments is Zip2Bit.</summary>
+      <value>The compression to be used for 2BPP images. The default compression for 2BPP segments is Zip2Bit.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorCompressionTypes.CompPicture">
+      <summary>Gets or sets the compression to be used for pictures. The default compression for picture segments is Jpg411Pic.</summary>
+      <value>The compression to be used for pictures. The default compression for picture segments is Jpg411Pic.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorCompressionTypes.Empty">
+      <summary>Initializes the PdfCompressorCompressionTypes structure with default values.</summary>
+      <value>A structure initialized with the PdfCompressorCompressionTypes default values.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorCompressionTypes.Flags">
+      <summary>Gets or sets the flags that identify which fields of the PdfCompressorCompressionTypes structure are to be used.</summary>
+      <value>The flags that identify which fields of the PdfCompressorCompressionTypes structure are to be used.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorCompressionTypes.QFactor">
+      <summary>Gets or sets the quality factor value (valid only for JPEG compression). The default quality factor is 50.</summary>
+      <value>The quality factor value (valid only for JPEG compression). The default quality factor is 50.</value>
+    </member>
+    <member name="T:Leadtools.PdfCompressor.PdfCompressorOptions">
+      <summary>Provides information about PDF Compressor options.</summary>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.BackGroundThreshold">
+      <summary>Gets or sets a threshold value used to separate image objects from the background.</summary>
+      <value>Best values are from 5 to 35.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.CleanSize">
+      <summary>Gets or sets a value that defines the size of the area to be used when removing the noise inside the segmented image.</summary>
+      <value>Possible values range from 0 to 10.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.ColorThreshold">
+      <summary>Gets or sets a threshold value used when merging segments.</summary>
+      <value>Best values are from 75 to 125.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.CombineThreshold">
+      <summary>Gets or sets a threshold value used to combine colors.</summary>
+      <value>The best value is 25.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.Empty">
+      <summary>Initializes the PdfCompressorOptions structure with default values.</summary>
+      <value>A structure initialized with the PdfCompressorOptions default values.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.Flags">
+      <summary>Gets or sets the segmentation flags.</summary>
+      <value>The segmentation flags.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.ImageQuality">
+      <summary>Gets or sets a value that indicates the quality of the source image.</summary>
+      <value>A value that indicates the quality of the source image.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.OutputQuality">
+      <summary>Gets or sets a value that indicates the quality of the output image.</summary>
+      <value>A value that indicates the quality of the output image.</value>
+    </member>
+    <member name="P:Leadtools.PdfCompressor.PdfCompressorOptions.SegmentQuality">
+      <summary>Gets or sets a threshold value used to determine whether the segment is a picture segment.</summary>
+      <value>Possible values range from 0 to 100.</value>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Leadtools.Mrc</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Mrc.MrcSegmenter">
+      <summary>MrcSegmenter represents the main class that contains all methods needed to perform a full segmentation process.</summary>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.#ctor(Leadtools.RasterImage,Leadtools.RasterColor,Leadtools.RasterColor)">
+      <summary>Initializes a new MrcSegmenter with explicit parameters.</summary>
+      <param name="image">Image that will be segmented.</param>
+      <param name="backColor">Default base background color for the MRC image.</param>
+      <param name="foreColor">Default base foreground color for the MRC image.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.#ctor(Leadtools.RasterImage,System.String)">
+      <summary>Loads segments from a file.</summary>
+      <param name="image">Image that contains size information used to clip the segments.</param>
+      <param name="fileName">The output file.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.AddSegment(Leadtools.RasterImage,Leadtools.Mrc.MrcSegmentData)">
+      <summary>Adds a new segment manually and sets the segment information.</summary>
+      <param name="image">The image in which the segment will be created.</param>
+      <param name="data">Information about the segment that will be added.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.Clone">
+      <summary>Copies the segmentation object to another segmentation object with its data.</summary>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.CombineSegments(System.Int32,System.Int32,Leadtools.Mrc.MrcCombineSegmentFlags,System.Int32)">
+      <summary>Combines two segments.</summary>
+      <param name="id1">ID of the first segment to be combined.</param>
+      <param name="id2">ID of the second segment to be combined.</param>
+      <param name="flags">Flag that indicates how segments will be combined. For the MrcCombineSegmentFlags.ForeSimilar value, the following types are considered similar and could therefore be combined: OneColor, Background, Text1BitBw, Text2BitBw, Text1BitColor, Text2BitColor, Grayscale2Bit. These types are considered similar and therefore could be combined: Grayscale2Bit, Grayscale8Bit. These types are considered similar and therefore could be combined: Grayscale8Bit, Picture. refer to MrcCombineSegmentFlags</param>
+      <param name="factor">A percentage value that represents the acceptable difference between the two segments being combined. This is valid only when flags is set to TryFactor. Possible values are between 0 and 100. A value of 0 indicates that only segments that are an exact match can be combined. A value of 100 indicates that any two segments of the same type can be combined. Large values cause very different segments to be joined, which causes considerable quality loss.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.DeleteSegment(System.Int32)">
+      <summary>Deletes a segment.</summary>
+      <param name="id">Segment identifier.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.EnumerateSegments(Leadtools.Mrc.MrcEnumerateSegmentsInfo)">
+      <summary>Enumerates the segments.</summary>
+      <param name="callback">Callback method that will be called to enumerate the segments.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.GetPagesCount(System.String)">
+      <summary>Gets the number of pages in an MRC file.</summary>
+      <param name="fileName">MRC file name.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.LoadImage(System.String,System.Int32)">
+      <summary>Loads an MRC image file into an image. The file can be in any supported image file format.</summary>
+      <param name="fileName">file to be loaded.</param>
+      <param name="pageNumber">The page number of a multi-page file, which can contain more than one image. When loading a file, this is the exact page number. For more information on multi-page files refer to Multipage File Formats.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.Save(System.String)">
+      <summary>Saves the segments to a specific file.</summary>
+      <param name="fileName">The output file name.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.SaveBitmapList(Leadtools.Mrc.MrcSegmenter,Leadtools.RasterImage,System.String,Leadtools.Mrc.MrcImageListFormat,Leadtools.Mrc.MrcCompressionOptions)">
+      <summary>Saves MRC images contained in an image list to a file using the MRC LEAD, standard Proprietary T44 or PDF format.</summary>
+      <param name="segmenters">List of MrcSegmenter objects.</param>
+      <param name="images">List of images to be saved.</param>
+      <param name="fileName">Output file name.</param>
+      <param name="format">Output file format.</param>
+      <param name="options">Structure that contains the compression information to use when saving the file.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.SaveImage(Leadtools.RasterImage,System.String,Leadtools.Mrc.MrcImageFormat,Leadtools.Mrc.MrcCompressionOptions,Leadtools.Codecs.RasterCodecs)">
+      <summary>Saves an MRC image contained in an image to a file using the LEAD Proprietary T44 format.</summary>
+      <param name="image">MRC image to save.</param>
+      <param name="fileName">The output file name.</param>
+      <param name="format">The output file format.</param>
+      <param name="options">Structure that contains the compression information to use when saving the file.</param>
+      <param name="codecs">extended saving options support</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.SaveImageT44(Leadtools.RasterImage,System.String,Leadtools.Mrc.MrcT44ImageFormat,Leadtools.Mrc.MrcCompressionOptions,Leadtools.Codecs.RasterCodecs)">
+      <summary>Saves an MRC image contained in an image to a file using the Standard T44 format.</summary>
+      <param name="image">MRC image to save.</param>
+      <param name="fileName">The output file name.</param>
+      <param name="format">The output file format.</param>
+      <param name="options">Structure that contains the compression information to use when saving the file.</param>
+      <param name="codecs">Extended saving options support</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.SegmentImage(Leadtools.RasterImage,Leadtools.Mrc.MrcSegmentImageOptions)">
+      <summary>Automatically segments the specified image, finding the best segment combination without specifying minimum segment dimensions.</summary>
+      <param name="image">The image that will be segmented.</param>
+      <param name="options">structure that controls the automatic segmentation process.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.SetSegmentData(Leadtools.RasterImage,System.Int32,Leadtools.Mrc.MrcSegmentData)">
+      <summary>Updates the specified segment.</summary>
+      <param name="image">The image that will be segmented.</param>
+      <param name="id">ID of the segment to be updated.</param>
+      <param name="data">Instance of the structure that contains the new segment information.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.Dispose">
+      <summary>Releases all resources used by this object.</summary>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.Dispose(System.Boolean)">
+      <summary>This member supports the Leadtools infrastructure and is not intended to be used directly from your code.</summary>
+      <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmenter.Finalize">
+      <summary>This method overrides Object.Finalize. and it will stop the segmentation process.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcEnumerateSegmentsInfo">
+      <summary>Handles each enumerated segment. This delegate is passed as a parameter to the EnumerateSegments method.</summary>
+      <param name="segmentHandle">An Instance of MrcSegmenter class.</param>
+      <param name="data">An Instance of MrcSegmentData that you can use to access a variable or structure containing data that your delegate method needs. This gives you a way to receive data indirectly from the method that uses this delegate method.</param>
+      <param name="id">ID of the segment being enumerated.</param>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcCombineSegmentFlags">
+      <summary>Flag that indicates how segments will be combined.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcCombineSegmentFlags.CombineForce">
+      <summary>Always combine segments of any type.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcCombineSegmentFlags.ForeSimilar">
+      <summary>Always combine similar segments.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcCombineSegmentFlags.TryFactor">
+      <summary>Use the factor parameter in the MrcSegmenter.CombineSegments method to determine similarity, and combine similar segments.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcGrayscaleCompression2BitCoder">
+      <summary>Flag that indicates the background (grayscale 2 bit) compression type.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcGrayscaleCompression2BitCoder.Jbig2">
+      <summary>2 bpp grayscale JBIG compression.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcGrayscaleCompression8BitCoder">
+      <summary>Flags that indicate the background (grayscale 8 bit) compression type.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcGrayscaleCompression8BitCoder.LosslessCmw">
+      <summary>8 bpp Lossless grayscale LEAD CMW compression.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcGrayscaleCompression8BitCoder.GrayscaleCmw">
+      <summary>8 bpp grayscale LEAD CMW compression.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcGrayscaleCompression8BitCoder.GrayscaleCmp">
+      <summary>8 bpp grayscale LEAD CMP compression.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcGrayscaleCompression8BitCoder.LosslessJpeg">
+      <summary>8 bpp Lossless grayscale JPEG compression.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcGrayscaleCompression8BitCoder.GrayscaleJpeg">
+      <summary>8 bpp grayscale JPEG compression.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcGrayscaleCompression8BitCoder.GrayscaleJpegProgressive">
+      <summary>8 bpp grayscale JPEG progressive compression.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcImageFormat">
+      <summary>Flags that are needed to save the MRC image using the LEAD Proprietary T44 format.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcImageFormat.Mrc">
+      <summary>LEAD Proprietary MRC. The default file extension is *.MRC.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcImageFormat.MrcTif">
+      <summary>Tagged Image File with LEAD proprietary MRC. (Supports multi-page). The default file extension is *.TIF.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcImageFormat.MrcPdf">
+      <summary>PDF compression using MRC segmentation.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcImageListFormat">
+      <summary>Flags that indicate the formats of output files used in MrcSegmenter.SaveBitmapList Method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcImageListFormat.MrcT44Tif">
+      <summary>Tagged Image File with LEAD proprietary MRC. (Supports multi-page). The default file extension is *.TIF.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcImageListFormat.MrcTif">
+      <summary>Tagged Image File with standard MRC Compression (Standard T44). (Supports multi-page).</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcImageListFormat.MrcPdf">
+      <summary>PDF compression using MRC segmentation technique.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcMaskCompression">
+      <summary>Flags that indicate the mask compression.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.Jbig">
+      <summary>(0x00000009)JBIG compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif, MrcT44ImageFormat.MrcT44, or MrcT44ImageFormat.MrcT44Tif is set in the format parameter of either MrcSegmenter.SaveImage method MrcSegmenter.SaveImageT44 or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.FaxG4">
+      <summary>Fax group 4 compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif, MrcT44ImageFormat.MrcT44, or MrcT44ImageFormat.MrcT44Tif is set in the format parameter of either MrcSegmenter.SaveImage method MrcSegmenter.SaveImageT44 or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.FaxG31D">
+      <summary>Fax group 3 (1D) compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif, MrcT44ImageFormat.MrcT44, or MrcT44ImageFormat.MrcT44Tif is set in the format parameter of either MrcSegmenter.SaveImage method MrcSegmenter.SaveImageT44 or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.FaxG32D">
+      <summary>Fax group 3 (2D) compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif, MrcT44ImageFormat.MrcT44, or MrcT44ImageFormat.MrcT44Tif is set in the format parameter of either MrcSegmenter.SaveImage method MrcSegmenter.SaveImageT44 or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.PdfZip">
+      <summary>ZIP compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.PdfLzw">
+      <summary>LZW compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.PdfG31D">
+      <summary>Fax group 3 (1D) compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.PdfG32D">
+      <summary>Fax group 3 (2D) compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.PdfG4">
+      <summary>Fax group 4 compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcMaskCompression.PdfJbig">
+      <summary>JBIG2 compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcPictureCompression">
+      <summary>Flags that indicate the background (picture) compression type.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.Cmw">
+      <summary>(0x00000001)LEAD Wavelet (CMW) compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.LosslessCmw">
+      <summary>LEAD Wavelet lossless compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.Cmp">
+      <summary>LEAD CMP compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.Jpeg">
+      <summary>(0x00000004)(0x0000000A)JPEG Compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif, MrcT44ImageFormat.MrcT44, or MrcT44ImageFormat.MrcT44Tif is set in the format parameter of either MrcSegmenter.SaveImage method MrcSegmenter.SaveImageT44 or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.LosslessJpeg">
+      <summary>JPEG Lossless Compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.JpegYUV422">
+      <summary>(0x0000000B)JPEG Compression with YUV 4:2:2 color space. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.JpegYUV411">
+      <summary>(0x0000000C)JPEG Compression with YUV 4:1:1 color space. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.JpegProgressive">
+      <summary>(0x0000000D)JPEG Progressive Compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.JpegProgressiveYUV422">
+      <summary>(0x0000000E)JPEG Progressive Compression with YUV 4:2:2 color space. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.JpegProgressiveYUV411">
+      <summary>(0x0000000F)JPEG Progressive Compression. This flag is used only if MrcImageFormat.Mrc, MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.PdfJpeg">
+      <summary>JPEG Compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.PdfJpegYUV422">
+      <summary>JPEG Compression with YUV 4:2:2 color space. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.PdfJpegYUV411">
+      <summary>JPEG Compression with YUV 4:1:1 color space. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.PdfJpegProgressive">
+      <summary>JPEG Progressive Compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.PdfJpegProgressiveYUV422">
+      <summary>JPEG Progressive Compression with YUV 4:2:2 color space. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.PdfJpegProgressiveYUV411">
+      <summary>JPEG Compression with YUV 4:1:1 color space. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.PdfZip">
+      <summary>ZIP Compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcPictureCompression.PdfLzw">
+      <summary>LZW Compression. This flag is used only if MrcImageFormat.MrcPdf is set in the format parameter of MrcSegmenter.SaveImage or MrcSegmenter.SaveBitmapList method.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcSegmentImageFlags">
+      <summary>Flags that indicate the segmentation preference, whether to force segments to be 2-bit segments, and whether to search for background segments.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentImageFlags.SegmentWithBackground">
+      <summary>Search for background segments.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentImageFlags.FavorOneBit">
+      <summary>The prefer segments type upon the others is one bit.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentImageFlags.AdvancedFeatureBasedSegmentation">
+      <summary>Use Advanced Feature Based Segmentation, distinguishing between different image segments by utilizing features such as (Text Paragraphs and Graphics). Then classifying the segements according to color. This is extremely useful for document images where text is the most important portion of the image.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentImageFlags.FavorTwoBit">
+      <summary>The prefer segments type upon the others is two bit.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentImageFlags.ForceOneBit">
+      <summary>Force all two bit segment types to be one bit segments.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentImageFlags.ForceTwoBit">
+      <summary>Force all one bit segment types to be two bit segments.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentImageFlags.SegmentWithOutBackground">
+      <summary>Do not search for background segments.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentImageFlags.NormalSegmentation">
+      <summary>Use normal segmentation, distinguishing between different image segments by utilizing the image colors.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcSegmentType">
+      <summary>Flags that indicate the type of segment.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.None">
+      <summary>None.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.Text1BitBw">
+      <summary>Segment is 1-bit black and white text.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.Text1BitColor">
+      <summary>Segment is 1 bit colored text.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.Text2BitColor">
+      <summary>Segment is 2 bit colored text.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.Grayscale2Bit">
+      <summary>Segment is 2-bit grayscale.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.Grayscale8Bit">
+      <summary>Segment is 8-bit grayscale.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.Picture">
+      <summary>Segment is an image.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.Background">
+      <summary>Segment is a background (The most prevalent color in the document is considered to be the background color.).</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.OneColor">
+      <summary>Segment is a one color.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcSegmentType.Text2BitBw">
+      <summary>Segment is 2-bit black and white text.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcT44ImageFormat">
+      <summary>Flags that are needed to save the MRC image using the Standard T44 format.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcT44ImageFormat.MrcT44">
+      <summary>Standard MRC Compression. The default file extension is *.MRC.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcT44ImageFormat.MrcT44Tif">
+      <summary>Tagged Image File with standard MRC Compression. (Supports multi-page). The default file extension is *.TIF.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcTextCompression2BitCoder">
+      <summary>Flags that indicate the text 2-bit compression type.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcTextCompression2BitCoder.Jbig2Bit">
+      <summary>2 bpp JBIG compression. This flag is used only if MrcImageFormat.Mrc or MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcTextCompression2BitCoder.Gif2Bit">
+      <summary>2 bpp GIF compression. This flag is used only if MrcImageFormat.Mrc or MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcTextCompression2BitCoder.PdfZip">
+      <summary>ZIP compression. This flag is used only if MrcImageFormat.Mrc or MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage method.</summary>
+    </member>
+    <member name="F:Leadtools.Mrc.MrcTextCompression2BitCoder.PdfLzw">
+      <summary>LZW compression. This flag is used only if MrcImageFormat.Mrc or MrcImageFormat.MrcTif is set in the format parameter of MrcSegmenter.SaveImage method.</summary>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcCompressionOptions">
+      <summary>The MrcCompressionOptions structure contains compression information used with mask/picture segments and quality compression factor for the pictures area.</summary>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcCompressionOptions.#ctor(Leadtools.Mrc.MrcMaskCompression,Leadtools.Mrc.MrcPictureCompression,System.Int32,Leadtools.Mrc.MrcGrayscaleCompression2BitCoder,Leadtools.Mrc.MrcGrayscaleCompression8BitCoder,System.Int32,Leadtools.Mrc.MrcTextCompression2BitCoder)">
+      <summary>Initializes a new MrcCompressionOptions with explicit parameters.</summary>
+      <param name="maskCoder">Mask compression.</param>
+      <param name="pictureCoder">Background (picture) compression type.</param>
+      <param name="pictureQFactor">Compression quality for JPEG, CMP and CMW compression.</param>
+      <param name="grayscale2BitCoder">Background (grayscale 2 bit) compression type.</param>
+      <param name="grayscale8BitCoder">Background (grayscale 8 bit) compression type.</param>
+      <param name="grayscale8BitFactor">Compression quality for JPEG, CMP and CMW compression.</param>
+      <param name="text2BitCoder">Text 2-bit compression type.</param>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcCompressionOptions.Empty">
+      <summary>Represents an MrcCompressionOptions structure with its properties left uninitialized.</summary>
+      <value>A MrcCompressionOptions structure with its properties left uninitialized.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcCompressionOptions.Grayscale2BitCoder">
+      <summary>Gets or sets a value that indicates the background (grayscale 2 bit) compression type.</summary>
+      <value>All possible values are found in MrcGrayscaleCompression2BitCoder.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcCompressionOptions.Grayscale8BitCoder">
+      <summary>Gets or sets a value that indicates the background (grayscale 8 bit) compression type.</summary>
+      <value>All possible values are found in MrcGrayscaleCompression8BitCoder.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcCompressionOptions.Grayscale8BitFactor">
+      <summary>Gets or sets the compression quality for JPEG, CMP and CMW compression.</summary>
+      <value>Possible values are between 2 and 255, where 2 are the highest quality and 255 is the most compression.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcCompressionOptions.MaskCoder">
+      <summary>Gets or sets the mask compression.</summary>
+      <value>All possible values are found in MrcMaskCompression.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcCompressionOptions.PictureCoder">
+      <summary>Gets or sets the value that indicates the background (picture) compression type.</summary>
+      <value>All possible values are found in MrcPictureCompression.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcCompressionOptions.PictureQualityFactor">
+      <summary>Gets or sets the compression quality for JPEG, CMP and CMW compression.</summary>
+      <value>Possible values are between 2 and 255, where 2 is the highest quality and 255 is the most compression. If the PictureCoder is CMW or JPEG lossless compression, the PictureQualityFactor should be 0.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcCompressionOptions.Text2BitCoder">
+      <summary>Gets or sets the value that indicates the text 2-bit compression type.</summary>
+      <value>All possible values are found in MrcTextCompression2BitCoder.</value>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcSegmentData">
+      <summary>The MrcSegmentData structure contains segment information.</summary>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmentData.#ctor(Leadtools.LeadRect,Leadtools.Mrc.MrcSegmentType)">
+      <summary>Initializes a new MrcCompressionOptions with explicit parameters (For internal use).</summary>
+      <param name="imageSegment">Segment rectangle</param>
+      <param name="segmentType">Segment type</param>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentData.Empty">
+      <summary>Represents an MrcSegmentData structure with its properties left uninitialized.</summary>
+      <value>An MrcSegmentData structure with its properties left uninitialized.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentData.ImageSegment">
+      <summary>Gets or sets ImageSegment rectangle.</summary>
+      <value>Gets or sets ImageSegment rectangle which represents the segment boundaries from the original image.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentData.SegmentType">
+      <summary>Gets or sets the segment type.</summary>
+      <value>All possible values are found in MrcSegmentType.</value>
+    </member>
+    <member name="T:Leadtools.Mrc.MrcSegmentImageOptions">
+      <summary>The MrcSegmentImageOptions structure contains segmentation options to control the auto segmentation process using the MrcSegmenter.SegmentImage method.</summary>
+    </member>
+    <member name="M:Leadtools.Mrc.MrcSegmentImageOptions.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Leadtools.Mrc.MrcSegmentImageFlags)">
+      <summary>Initializes a new MrcCompressionOptions with explicit parameters.</summary>
+      <param name="cleanSize">Cleaner size used to remove the noise inside the segmented image. Possible values range from 0 to 10, where 0 means to skip the cleaning stage.</param>
+      <param name="segmentQuality">Value used to determine whether the segment is a picture segment. Possible values range from 0 to 100. Use 0 to set all possible picture segments to 2-bit without loss of a lot of information. Use 100 to set all picture segments to 2 bit only if they are very very close to 2-bit.</param>
+      <param name="colorThreshold">Value used to combine colors. The best value is 25. Values saturate at 443.</param>
+      <param name="backgroundThreshold">Threshold value used to separate image objects from the background. Best values are from 5 to 35.</param>
+      <param name="combineThreshold">Threshold value used to merge segments. Best values are from 75 to 125.</param>
+      <param name="flags">Flags that determine the behavior of the process.</param>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentImageOptions.BackgroundThreshold">
+      <summary>Threshold value used to separate image objects from the background.</summary>
+      <value>Best values are from 5 to 35.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentImageOptions.CleanSize">
+      <summary>Value that indicates the cleaner size used to remove the noise inside the segmented image.</summary>
+      <value>Possible values range from 0 to 10, where 0 means to skip the cleaning stage.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentImageOptions.ColorThreshold">
+      <summary>Threshold value used to combine colors.</summary>
+      <value>The best value is 25. Values saturate at 443.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentImageOptions.CombineThreshold">
+      <summary>Threshold value used to merge segments.</summary>
+      <value>Best values are from 75 to 125.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentImageOptions.Empty">
+      <summary>Represents an MrcSegmentImageOptions structure with its properties left uninitialized.</summary>
+      <value>An MrcSegmentImageOptions structure with its properties left uninitialized.</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentImageOptions.Flags">
+      <summary>Flags that determine the behavior of the process.</summary>
+      <value>For possible values, refer to MrcSegmentImageFlags</value>
+    </member>
+    <member name="P:Leadtools.Mrc.MrcSegmentImageOptions.SegmentQuality">
+      <summary>Threshold value used to determine whether the segment is a picture segment.</summary>
+      <value>Possible values range from 0 to 100.</value>
+    </member>
+  </members>
+</doc>

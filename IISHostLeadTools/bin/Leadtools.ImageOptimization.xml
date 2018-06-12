@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Leadtools.ImageOptimization</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.ImageOptimization.ImageOptimizer">
+      <summary>Provides methods to optimize one image or a directory of images in one of the supported formats.</summary>
+    </member>
+    <member name="M:Leadtools.ImageOptimization.ImageOptimizer.#ctor">
+      <summary>Initializes a new ImageOptimizer class object.</summary>
+    </member>
+    <member name="M:Leadtools.ImageOptimization.ImageOptimizer.OptimizeBuffer(Leadtools.Codecs.RasterCodecs,System.Byte[],System.Int32,System.Int32,Leadtools.ImageOptimization.ImageOptimizerOptions,Leadtools.ImageOptimization.ImageOptimizerProgress)">
+      <summary>Optimizes a supported image format buffer using the passed optimization options.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object used internally in the optimization operation.</param>
+      <param name="buffer">The original image buffer in memory as a System.Byte array. The image format in memory should be one of the following supported formats:</param>
+      <param name="offset">The number of bytes to offset the pointer that points to the \buffer\ parameter" so that the data will be read starting from the "Buffer + Offset" position.</param>
+      <param name="length">The length of the image buffer, in bytes, starting from the \offset\ byte.</param>
+      <param name="options">The options used in the optimization process.</param>
+      <param name="progressCallback">Optional callback function that provides information about the progress of the optimization process.</param>
+      <returns>A System.Byte array that contains the optimized image buffer in memory.</returns>
+    </member>
+    <member name="M:Leadtools.ImageOptimization.ImageOptimizer.OptimizeBuffer(Leadtools.Codecs.RasterCodecs,System.IntPtr,System.Int64,Leadtools.ImageOptimization.ImageOptimizerOptions,Leadtools.ImageOptimization.ImageOptimizerProgress)">
+      <summary>Optimizes a supported image format buffer using the passed optimization options.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object used internally in the optimization operation.</param>
+      <param name="buffer">The original image buffer in memory as System.IntPtr array. The image format in memory should be one of the following supported formats:</param>
+      <param name="length">The size, in bytes, of the \buffer\ parameter in memory.</param>
+      <param name="options">The options used in the optimization process.</param>
+      <param name="progressCallback">Optional callback function that provides information about the progress of the optimization process.</param>
+      <returns>A Leadtools.RasterNativeBuffer structure that contains the image optimized buffer in memory.</returns>
+    </member>
+    <member name="M:Leadtools.ImageOptimization.ImageOptimizer.OptimizeDirectory(Leadtools.Codecs.RasterCodecs,System.String,System.String,Leadtools.ImageOptimization.ImageOptimizerOptions,System.String,System.Boolean,Leadtools.ImageOptimization.ImageOptimizerDirectory)">
+      <summary>Optimizes a directory of images using the specified optimization options, and saves the optimized images to a new directory with the same original hierarchy.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object used internally in the optimization operation to load an image and optimize it.</param>
+      <param name="inputDirectory">A System.String that contains the full directory path to the images to be optimized.</param>
+      <param name="outputDirectory">A System.String that contains the full directory path to be used when saving the optimized image(s).</param>
+      <param name="options">The options used in the optimization process.</param>
+      <param name="fileExtensions">A System.String that contains the extensions of the files to be optimized. For example:</param>
+      <param name=".gif;\">-   To optimize all the supported files found in the \inputDirectory\ directory, regardless of their extensions, \fileExtensions\ should be set to "\*.\*".</param>
+      <param name="includeSubDirectories">true to optimize sub-directories, false otherwise.</param>
+      <param name="directoryCallback">Optional callback function that provides user information about the image(s) being optimized, such as the completion percentage for the current image being optimized, and the completion percentage for all files being optimized.</param>
+    </member>
+    <member name="T:Leadtools.ImageOptimization.ImageOptimizerDirectoryData">
+      <summary>Provides data for the ImageOptimizerDirectory callback method.</summary>
+    </member>
+    <member name="M:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.#ctor">
+      <summary>Initializes a new ImageOptimizerDirectoryData class object.</summary>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.FilePercent">
+      <summary>Gets the percent completion for the image currently being optimized, when the Status property is ImageOptimizerDirectoryStatus.OptimizingImage.</summary>
+      <value>The percent completion for the image currently being optimized.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.ImageInfo">
+      <summary>Gets a Leadtools.Codecs.CodecsImageInfo class that contains information about the image file being optimized.</summary>
+      <value>A Leadtools.Codecs.CodecsImageInfo class that contains information about the image file being optimized.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.InputFileName">
+      <summary>Gets the original, complete file name.</summary>
+      <value>The original, complete file name.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.Options">
+      <summary>Gets or sets the options used when optimizing the image specified in InputFileName.</summary>
+      <value>The options used when optimizing the image specified in InputFileName.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.OutputFileName">
+      <summary>Gets the optimized, complete file name.</summary>
+      <value>The optimized, complete file name.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.SkipImage">
+      <summary>Gets or sets a value that indicates whether to skip processing the current image being optimized.</summary>
+      <value>Value that indicates whether to skip processing the current image being optimized. Possible values are:</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.Status">
+      <summary>Gets the current status of the directory optimization process.</summary>
+      <value>Status of the directory optimization process.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.TotalFolderFilesCount">
+      <summary>Gets the total number of files in the directory to be optimized.</summary>
+      <value>The total number of files in the directory to be optimized.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerDirectoryData.TotalPercent">
+      <summary>Gets the percent completion for the entire optimization task, when the Status property is ImageOptimizerDirectoryStatus.OptimizingImage.</summary>
+      <value>The percent completion for all of the files being optimized.</value>
+    </member>
+    <member name="T:Leadtools.ImageOptimization.ImageOptimizerDirectory">
+      <summary>Called during the directory optimization operation to give the user information about the image(s) being optimized.</summary>
+      <param name="data">A ImageOptimizerDirectoryData object containing information about the image(s) being optimized.</param>
+      <returns>A System.Boolean value that indicates whether to cancel the optimization operation for the current image. Possible values are:</returns>
+    </member>
+    <member name="T:Leadtools.ImageOptimization.ImageOptimizerProgress">
+      <summary>Called during the buffer optimization operation to notify the user of the percent completion of the optimization operation.</summary>
+      <param name="percent">A value from 0 to 100 that indicates the percent completion of the optimization operation.</param>
+      <returns>A System.Boolean value that indicates whether to cancel the optimization operation. Possible values are:</returns>
+    </member>
+    <member name="T:Leadtools.ImageOptimization.ImageOptimizerDirectoryStatus">
+      <summary>Indicates the status of the current optimization directory.</summary>
+    </member>
+    <member name="F:Leadtools.ImageOptimization.ImageOptimizerDirectoryStatus.PreOptimizingImage">
+      <summary>Indicates that the image specified in ImageOptimizerDirectoryData.InputFileName is about to be optimized.</summary>
+    </member>
+    <member name="F:Leadtools.ImageOptimization.ImageOptimizerDirectoryStatus.OptimizingImage">
+      <summary>Indicates that the image specified in ImageOptimizerDirectoryData.InputFileName is being optimized.</summary>
+    </member>
+    <member name="T:Leadtools.ImageOptimization.ImageOptimizerJpegColorSpace">
+      <summary>Indicates the color space to be used when optimizing a Jpeg Image.</summary>
+    </member>
+    <member name="F:Leadtools.ImageOptimization.ImageOptimizerJpegColorSpace.JpegColorSpace411">
+      <summary>Use the YUV 4:1:1 color space.</summary>
+    </member>
+    <member name="F:Leadtools.ImageOptimization.ImageOptimizerJpegColorSpace.JpegColorSpace422">
+      <summary>Use the YUV 4:2:2 color space.</summary>
+    </member>
+    <member name="T:Leadtools.ImageOptimization.ImageOptimizerOptions">
+      <summary>Provides options to be used by the ImageOptimizer.OptimizeBuffer and the ImageOptimizer.OptimizeDirectory methods, to optimize the image and save it using the optimal bits per pixel.</summary>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerOptions.Default">
+      <summary>Gets the default optimization options used by LEADTOOLS for optimizing an image.</summary>
+      <value>The default optimization options used by LEADTOOLS for optimizing an image.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerOptions.Distance">
+      <summary>Gets or sets a value that represents the distance between image colors to be reduced in the image optimization operation.</summary>
+      <value>The **Distance** value can be a value between 0 and 255, where:</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerOptions.JpegColorSpace">
+      <summary>Gets or sets the value that represents the color space to be used in the image optimization operation.</summary>
+      <value>The default value is ImageOptimizerJpegColorSpace.JpegColorSpace411.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerOptions.JpegQualityFactor">
+      <summary>Gets or sets a value that represents the quality factor to be used when optimizing an image.</summary>
+      <value>The **JpegQualityFactor** is a number used to balance between loss and quality during compression. You can set a value from 2 to 255, where 2 represents the highest quality and 255 represents the most compression. The default value is 35.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerOptions.Percent">
+      <summary>Gets or sets the value that represents the percent redundancy to be used in the image optimization operation.</summary>
+      <value>The **Percent** value can be a value between 0 and 100. The default value is 10.</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerOptions.PickSamePalette">
+      <summary>Gets or sets a value that indicates whether to generate a unique global palette for all GIF frames or generate a separate palette for each frame.</summary>
+      <value>Value that indicates whether to generate a unique global palette for all GIF frames or generate a separate palette for each frame. Possible values are:</value>
+    </member>
+    <member name="P:Leadtools.ImageOptimization.ImageOptimizerOptions.PngQualityFactor">
+      <summary>Gets or sets the value that represents the quality factor to be used in the image optimization operation.</summary>
+      <value>The **PngQualityFactor** can be a value between 0 and 10 where:</value>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,2082 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Leadtools.Annotations</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine">
+      <summary>Represents the annotation rendering engine implementation for the Android platform.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.#ctor">
+      <summary>Initializes a new AnnAndroidRenderingEngine.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.#ctor">
+      <summary>Initializes a new AnnAndroidRenderingEngine with the specified parameters.</summary>
+      <param name="container">The annotation container that contains the objects to draw.</param>
+      <param name="context">The destination canvas to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.Attach">
+      <summary>Attaches this rendering engine to an annotation container and a context (Canvas).</summary>
+      <param name="container">The annotation container that contains the objects to draw.</param>
+      <param name="context">The destination context (canvas) to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.Attach">
+      <summary>Attaches a container and a context to this drawing engine.</summary>
+      <param name="container">Container to attach</param>
+      <param name="context">Target context where the container will be rendered</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.detach">
+      <summary>Detaches this this rendering engine from the container.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.drawClosedCurve">
+      <summary>Draws a closed curve into Android canvas.</summary>
+      <param name="canvas">The destination canvas.</param>
+      <param name="points">The curve points.</param>
+      <param name="tension">The tension value to use.</param>
+      <param name="fillRule">An AnnFillRule value that determines how the curve interior is filled in.</param>
+      <param name="paint">The **Paint** object used to draw the curve.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.drawCurve">
+      <summary>Draws a curve into Android canvas.</summary>
+      <param name="canvas">The destination canvas.</param>
+      <param name="points">The curve points.</param>
+      <param name="tension">The tension value to use.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.drawPicture">
+      <summary>Draws an AnnPicture using the properties of this rendering engine.</summary>
+      <param name="picture">The picture to draw.</param>
+      <param name="rc">The destination rectangle.</param>
+      <param name="annObject">The owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.measureString">
+      <summary>Measures the specified string when drawn using the specified font.</summary>
+      <param name="text">The string to measure.</param>
+      <param name="font">The font that defines the text format of the string.</param>
+      <returns>The size of the string in container coordinates.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.onLoadPicture">
+      <summary>Overrides AnnRenderingEngine.onLoadPicture</summary>
+      <param name="e">The AnnLoadPictureEventArgs event data.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.render">
+      <summary>Renders the container to the specified destination rectangle.</summary>
+      <param name="rc">The destination rectangle.</param>
+      <param name="runMode"></param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.renderOnImage">
+      <summary>Renders the container into the specified image.</summary>
+      <param name="container">The source AnnContainer to be rendered.</param>
+      <param name="inputImage">The target RasterImage.</param>
+      <returns>The result image containing the original image data plus the objects of the container overlaid on top.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.ToPaint">
+      <summary>Converts an AnnBrush to an android.graphics.Paint object.</summary>
+      <param name="brush">The AnnBrush object to convert</param>
+      <returns>The android.graphics.Paint object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.ToPaint">
+      <summary>Converts an AnnBrush to an android.graphics.Paint object with an opacity value.</summary>
+      <param name="brush">The AnnBrush object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <returns>An android.graphics.Paint object.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.ToPaint">
+      <summary>Helper method to convert AnnBrush to an android.graphics.Paint object with opacity and bounding rectangle values.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <param name="brushBounds">The bounding rectangle of the brush in pixels.</param>
+      <returns>An android.graphics.Paint object.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.ToPaint">
+      <summary>Helper method to convert AnnBrush to an android.graphics.Paint object with alpha, opacity and bounding rectangle values.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="alpha">Alpha value to use (0 to 255).</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <param name="brushBounds">The bounding rectangle of the brush in pixels.</param>
+      <returns>An android.graphics.Paint object.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.ToPaint">
+      <summary>Converts an AnnFont object to an android.graphics.Paint object.</summary>
+      <param name="font">The AnnFont object to convert.</param>
+      <returns>The new android.graphics.Paint object.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.ToPaint">
+      <summary>Converts an AnnStroke object to an android.graphics.Paint object.</summary>
+      <param name="stroke">The AnnStroke object to convert.</param>
+      <returns>The new android.graphics.Paint object.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.ToPaint">
+      <summary>Converts an AnnStroke object to an android.graphics.Paint object using an opacity.</summary>
+      <param name="stroke">Stroke object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <returns>The new android.graphics.Paint object.</returns>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnAndroidRenderingEngine.Context">
+      <summary>Gets or sets the destination canvas context object to use when rendering annotation objects.</summary>
+      <value>The destination canvas context object to use when rendering annotation objects. The default value is **null**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnCrossProductObjectRenderer">
+      <summary>Represents a renderer for the cross product annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnCrossProductObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnCrossProductObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use when converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnCrossProductObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnCurveObjectRenderer">
+      <summary>Represents a renderer for the curve annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnCurveObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnCurveObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnCurveObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DCrossProductObjectRenderer">
+      <summary>Represents a renderer for the cross product annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DCrossProductObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DCrossProductObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DCrossProductObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use when converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DCurveObjectRenderer">
+      <summary>Represents a renderer for the curve annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DCurveObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DCurveObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DCurveObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DEllipseObjectRenderer">
+      <summary>Represents a renderer for the ellipse annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DEllipseObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DEllipseObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DEllipseObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DEllipseThumbStyle">
+      <summary>Provides an Ellipse thumb style.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DEllipseThumbStyle.#ctor">
+      <summary>Initializes a new instance of AnnD2DEllipseThumbStyle</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DEllipseThumbStyle.AddPath(GraphicsPath,Leadtools.LeadRectD)">
+      <summary>Draws the thumb shape.</summary>
+      <param name="path">The destination path.</param>
+      <param name="rect">The physical coordinates of the Bounding rectangle.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DEllipseThumbStyle.Create">
+      <summary>Returns a new instance of this class.</summary>
+      <returns>A new instance of this class.</returns>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DEncryptObjectRenderer">
+      <summary>Represents a renderer for the cross product annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DEncryptObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DEncryptObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DEncryptObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use when converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DFreehandHotspotObjectRenderer">
+      <summary>Represents a renderer for the free hand hotspot annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DFreehandHotspotObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DFreehandHotspotObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DFreehandHotspotObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DHiliteObjectRenderer">
+      <summary>Represents a renderer for the hilite annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DHiliteObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DHiliteObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DHiliteObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DHotspotObjectRenderer">
+      <summary>Represents a renderer for hotspot annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DHotspotObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DHotspotObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DHotspotObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DHotspotObjectRenderer.ShowAtRunMode">
+      <summary>Gets a value that indicate whether to render this object if the container is in run mode.</summary>
+      <value>**true** to render this object if the container is in run mode, otherwise; **false**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DImageObjectRenderer">
+      <summary>Represents a renderer for the image annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DImageObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DImageObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DImageObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DLabelRenderer">
+      <summary>Represents a renderer for text labels in this platform.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DLabelRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DLabelRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DLabelRenderer.GetBounds(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Gets the bound of the label.</summary>
+      <param name="mapper">An AnnContainerMapper used for converting the coordinates for rendering.</param>
+      <param name="label">The AnnLabel to be rendered.</param>
+      <param name="operations">An AnnFixedStateOperations value that controls the fixed state of the object to be rendered.</param>
+      <returns>The bounds of the label.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DLabelRenderer.Initialize(Leadtools.Annotations.Core.AnnRenderingEngine)">
+      <summary>Initializes the label renderer with the specified rendering engine.</summary>
+      <param name="renderingEngine">The rendering engine to use. This must an object that derives from AnnRenderingEngine. The value of this parameter gets set in the RenderingEngine property. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DLabelRenderer.RenderLabel(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the specified label.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="label">The label to render. Must not be **null**.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DLabelRenderer.OffsetHeight">
+      <summary>Gets or sets a value that indicates whether to offset the label by its height during rendering.</summary>
+      <value>**true** to offset the label by its height during rendering; otherwise it is false.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DLabelRenderer.RenderingEngine">
+      <summary>Gets the rendering engine associated with this label renderer.</summary>
+      <value>The rendering engine associated with this label renderer. This is the same value passed to Initialize.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DMediaObjectRenderer">
+      <summary>Represents a renderer for the cross product annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DMediaObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DMediaObjectRenderer</summary>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DMediaObjectRenderer.ShowAtRunMode">
+      <summary>Gets a value that indicate whether to render this object if the container is in run mode.</summary>
+      <value>**true** to render this object if the container is in run mode, otherwise; **false**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DNoteObjectRenderer">
+      <summary>Represents a renderer for the note annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DNoteObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DNoteObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DNoteObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer">
+      <summary>Base class for all object renderers.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.AddObject(Leadtools.Annotations.Core.AnnObject)">
+      <summary>Called by the state annotation rendering engine to add the element for this object.</summary>
+      <param name="annObject">The annotation object being added.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.GetRenderPoints(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Gets the points that must be rendered for this object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates.</param>
+      <param name="annObject">The object to render.</param>
+      <returns>An array of points to render.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.Initialize(Leadtools.Annotations.Core.AnnRenderingEngine)">
+      <summary>Initializes this object renderer with the specified rendering engine.</summary>
+      <param name="renderingEngine">The rendering engine to use. This must an object that derives from AnnRenderingEngine. The value of this parameter gets set in the RenderingEngine property. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RemoveObject(Leadtools.Annotations.Core.AnnObject)">
+      <summary>Called by the state annotation rendering engine to remove the element for this object.</summary>
+      <param name="annObject">The annotation object being removed.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RenderContent(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the content of an annotation object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render its content.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RenderLocked(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the lock portion of the object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RenderRotatePointThumbs(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,Leadtools.LeadPointD,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the rotation points thumbs of an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="rotateCenterLocation">Location of the rotate center to render in container coordinates.</param>
+      <param name="rotateGripperLocation">Location of the rotate gripper to render in container coordinates.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RenderSelection(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders the selected part of this object if it supports a selection stroke.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RenderThumbs(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD[],Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the thumbs of an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="thumbLocations">Locations of the thumbs in container coordinates.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.BeginClipPath">
+      <summary>Sets the current path in the context as a clipping path.</summary>
+      <returns>The path state. This value must be passed to EndClipPath.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.EndClipPath(System.Object)">
+      <summary>Removes the current clipping path from the context.</summary>
+      <param name="state">The state object returned from BeginClipPath</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.LabelRenderer">
+      <summary>Gets or sets the object used to render the labels of this object type.</summary>
+      <value>The object used to render the labels of this object type. This must be a default AnnD2DLabelRenderer object or a user derived class. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.LocationsThumbStyle">
+      <summary>Gets or sets the style used to render the thumbs of this object type.</summary>
+      <value>The style used to render the thumbs of this object type. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RenderingEngine">
+      <summary>Gets the rendering engine associated with this object renderer.</summary>
+      <value>The rendering engine associated with this object renderer. This is the same value passed to Initialize.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RotateCenterThumbStyle">
+      <summary>Gets or sets the style used to render the rotate center thumb of this object type.</summary>
+      <value>The style used to render the rotate center thumb of this object type. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.RotateGripperThumbStyle">
+      <summary>Gets or sets the style used to render the rotate gripper thumb of this object type.</summary>
+      <value>The style used to render the rotate gripper thumb of this object type. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DObjectRenderer.ClipPath">
+      <summary>Gets or sets a value that indicates whether a clipping path has been set.</summary>
+      <value>**true** if a clipping path has been set; **false**, otherwise. The default value is **false**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DPointerObjectRenderer">
+      <summary>Represents a renderer for the pointer annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPointerObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DPointerObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPointerObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DPointObjectRenderer">
+      <summary>Represents a renderer for the point annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPointObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DPointObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPointObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DPolylineObjectRenderer">
+      <summary>Represents a renderer for the polyline line annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPolylineObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DPolylineObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPolylineObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DPolylineObjectRenderer.UseSplineMode">
+      <summary>Gets or sets the value indicating whether to use spline curves instead of straight lines when rendering polylines.</summary>
+      <value>**true** to use spline curves instead of straight lines when rendering polylines, **false** otherwise. Default value is **false**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DPolyRulerObjectRenderer">
+      <summary>Represents a renderer for the poly ruler annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPolyRulerObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DPolyRulerObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPolyRulerObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPolyRulerObjectRenderer.DrawGauge(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,Leadtools.LeadPointD,Leadtools.LeadLengthD,Leadtools.Annotations.Core.AnnStroke,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the gauge portion of the ruler.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="startPoint">The first (starting) point of the ruler.</param>
+      <param name="endPoint">The second (stopping) point of the ruler.</param>
+      <param name="gaugeLength">The length of the gauge.</param>
+      <param name="stroke">The stroke to use when drawing the ruler.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPolyRulerObjectRenderer.DrawLengthText(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the length text of the ruler object.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="label">The text label to draw.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DPolyRulerObjectRenderer.DrawTickMarks(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,Leadtools.LeadPointD,Leadtools.LeadLengthD,Leadtools.Annotations.Core.AnnUnit,Leadtools.Annotations.Core.AnnStroke,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the tick marks portion of the ruler.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="startPoint">The first (starting) point of the ruler.</param>
+      <param name="endPoint">The second (stopping) point of the ruler.</param>
+      <param name="tickMarkLength">The length of the tick marks.</param>
+      <param name="unit">The unit of the ruler.</param>
+      <param name="stroke">The stroke to use when drawing the ruler.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DProtractorObjectRenderer">
+      <summary>Represents a renderer for the protractor annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DProtractorObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DProtractorObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DProtractorObjectRenderer.DrawAngleText(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the angle text of the protractor object.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="label">The text label to draw.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DProtractorObjectRenderer.GetAngleText(System.Double,System.Double,Leadtools.Annotations.Core.AnnAngularUnit,Dictionary&lt;AnnAngularUnit,string&gt;)">
+      <summary>Gets the text to use for the given angle.</summary>
+      <param name="angle">The angle value in \unit\.</param>
+      <param name="precision">The precision of \angle\. Refer to AnnProtractorObject.AnglePrecision for valid values.</param>
+      <param name="unit">The unit of \angle\.</param>
+      <param name="unitsAbbreviation">The unit abbreviation to use.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DProtractorObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DProtractorObjectRenderer.DrawArc(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,System.Double,System.Double,Leadtools.LeadLengthD,Leadtools.Annotations.Core.AnnStroke,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the arc portion of the protractor object.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="center">The arc center.</param>
+      <param name="startAngle">The start angle of the arc, in degrees.</param>
+      <param name="sweepAngle">The sweep angle of the arc, in degrees.</param>
+      <param name="radius">The radius of the arc.</param>
+      <param name="stroke">The stroke to use when drawing the arc.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DProtractorObjectRenderer.DrawArc(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD[],Leadtools.LeadLengthD,System.Boolean,System.Double,Leadtools.Annotations.Core.AnnStroke,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the arc portion of the protractor object.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="points">The list of AnnProtractorObject object points. Must not be **null**.</param>
+      <param name="arcRadius">The radius of the arc.</param>
+      <param name="acute">The value indicates whether to mark the inside(acute) or outside (obtuse) angle for AnnProtractorObject object</param>
+      <param name="sweepAngle">The sweep angle of the arc, in degrees.</param>
+      <param name="stroke">The stroke to use when drawing the arc.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DRectangleObjectRenderer">
+      <summary>Represents a renderer for rectangular annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRectangleObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DRectangleObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRectangleObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DRectangleThumbStyle">
+      <summary>Rectangle thumb style.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRectangleThumbStyle.#ctor">
+      <summary>Initializes a new instance of AnnD2DRectangleThumbStyle</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRectangleThumbStyle.AddPath(GraphicsPath,Leadtools.LeadRectD)">
+      <summary>Draws the thumb shape.</summary>
+      <param name="path">The destination path.</param>
+      <param name="rect">The physical coordinates of the bounding rectangle.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRectangleThumbStyle.Create">
+      <summary>Returns a new instance of this class.</summary>
+      <returns>A new instance of this class.</returns>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine">
+      <summary>Represents the annotation rendering engine implementation for the Wpf platform.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.#ctor">
+      <summary>Initializes a new AnnD2DRenderingEngine.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.Attach(Leadtools.Annotations.Core.AnnContainer,System.Object)">
+      <summary>Attaches a container and a context to this drawing engine.</summary>
+      <param name="container">Container to attach</param>
+      <param name="context">Target context where the container will be rendered</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.AttachContainers(Leadtools.Annotations.Core.AnnContainerCollection,D2DSurface)">
+      <summary>Attaches this rendering engine to list of annotation containers and a drawing context (D2DSurface).</summary>
+      <param name="containers">The annotation containers list that contain the objects to draw.</param>
+      <param name="context">The destination D2D context to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ClearSurface(D2DSurface,SolidColorBrush)">
+      <summary>Clears the d2d drawing context with selected solid brush</summary>
+      <param name="context">The d2d surface being cleared.</param>
+      <param name="fill">the solid brush we will use to clear the d2d surface.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.Detach">
+      <summary>Detaches this drawing engine from the container.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.DetachContainers">
+      <summary>Detaches this drawing engine from the containers list.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.DrawPicture(Leadtools.Annotations.Core.AnnPicture,Leadtools.LeadRectD,Leadtools.Annotations.Core.AnnObject,D2DSurface)">
+      <summary>Helper method to draw an AnnPicture using the properties of this rendering engine.</summary>
+      <param name="picture">The picture to draw.</param>
+      <param name="objectBounds">The destination rectangle.</param>
+      <param name="annObject">The owner object.</param>
+      <param name="context">The context using by this rendering engine.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.LoadPictureAsync(Leadtools.Annotations.Core.AnnPicture,Leadtools.LeadRectD,Leadtools.Annotations.Core.AnnObject,D2DSurface)">
+      <summary>Loads the picture data resource for the specified AnnObject.</summary>
+      <param name="picture">The source AnnPicture to be loaded.</param>
+      <param name="objectBounds">The AnnObject picture bounds.</param>
+      <param name="annObject">The destination AnnObject.</param>
+      <param name="context">The **D2DSurface** used in rendering annObject.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.LoadResourceToPicture(Leadtools.Annotations.Core.AnnContainer)">
+      <summary>Loads the picture data resource for each AnnObject in the specified AnnContainer.</summary>
+      <param name="container">The source AnnContainer that holds the objects for which picture resources will be loaded.</param>
+      <returns>A IAsyncAction of the operation.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.MeasureString(System.String,Leadtools.Annotations.Core.AnnFont)">
+      <summary>Measures the specified string when drawn with the specified font.</summary>
+      <param name="text">String to measure.</param>
+      <param name="font">Font that defines the text format of the string.</param>
+      <returns>The size of the string in container coordinates.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.OnLoadPicture(Leadtools.Annotations.Core.AnnLoadPictureEventArgs)">
+      <summary>Overrides OnLoadPicture.</summary>
+      <param name="e">AnnLoadPictureEventArgsEvent data</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.Render(Leadtools.LeadRectD,System.Boolean)">
+      <summary>Overrides AnnRenderingEngine.Render.</summary>
+      <param name="clipRect">The destination clip rectangle LeadRectD in container coordinates. The engine will only render into this area. If you do not want to use a clip rectangle, pass LeadRectD.Empty.</param>
+      <param name="clear"></param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.RenderOnCanvas(Leadtools.Annotations.Core.AnnContainer,Canvas)">
+      <summary>Renders the container into the specified RenderTargetBitmap.</summary>
+      <param name="container">The source AnnContainer to be rendered.</param>
+      <param name="inputCanvas">The source Canvas.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.RenderOnImage(Leadtools.Annotations.Core.AnnContainer,Leadtools.RasterImage)">
+      <summary>Renders the container into the specified image.</summary>
+      <param name="container">The source AnnContainer to be rendered.</param>
+      <param name="inputImage">The target RasterImage.</param>
+      <returns>The result image containing the original image data plus the objects of the container overlaid on top.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush)">
+      <summary>Helper method to convert AnnBrush to System.Windows.Media.Brush.</summary>
+      <param name="brush">Brush object to convert</param>
+      <returns>System.Windows.Media.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Double)">
+      <summary>Helper method to convert AnnBrush to System.Windows.Media.Brush.</summary>
+      <param name="brush">Brush object to convert.</param>
+      <param name="opacity">The desired opacity of the resulting brush. Values can be from 0 to 1.0</param>
+      <returns>System.Windows.Media.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Double,Leadtools.LeadRectD)">
+      <summary>Helper method to convert AnnBrush to System.Windows.Media.Brush with opacity and bounding rectangle values.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <param name="brushBounds">The bounding rectangle of the brush in pixels.</param>
+      <returns>System.Windows.Media.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Int32)">
+      <summary>Helper method to convert AnnBrush to System.Windows.Media.Brush with alpha value.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="alpha">Alpha value to use (0 to 255).</param>
+      <returns>System.Windows.Media.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Int32,System.Double)">
+      <summary>Helper method to convert AnnBrush to System.Windows.Media.Brush using either an alpha or opacity value.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="alpha">The desired alpha of the resulting brush. Values can be from 0 to 255</param>
+      <param name="opacity">The desired opacity of the resulting brush. Values can be from 0 to 1.0</param>
+      <returns>System.Windows.Media.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Int32,System.Double,Leadtools.LeadRectD)">
+      <summary>Helper method to convert AnnBrush to System.Windows.Media.Brush with alpha, opacity and bounding rectangle values.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="alpha">Alpha value to use (0 to 255).</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <param name="brushBounds">The bounding rectangle of the brush in pixels.</param>
+      <returns>System.Windows.Media.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToD2DFont(Leadtools.Annotations.Core.AnnFont)">
+      <summary>Helper method to convert AnnFont to Leadtools.Windows.D2DRendering.D2DFont.</summary>
+      <param name="font">Font object to convert</param>
+      <returns>Leadtools.Windows.D2DRendering.D2DFont object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToD2DPen(Leadtools.Annotations.Core.AnnStroke)">
+      <summary>Helper method to convert AnnStroke to Leadtools.Windows.D2DRendering.D2DPen.</summary>
+      <param name="stroke">Stroke object to convert</param>
+      <returns>Leadtools.Windows.D2DRendering.D2DPen object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToD2DPen(Leadtools.Annotations.Core.AnnStroke,System.Double)">
+      <summary>Helper method to convert AnnStroke to Leadtools.Windows.D2DRendering.D2DPen using an opacity.</summary>
+      <param name="stroke">Stroke object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <returns>Leadtools.Windows.D2DRendering.D2DPen object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToFillRule(Leadtools.Annotations.Core.AnnFillRule)">
+      <summary>Helper method to convert AnnFillRule to System.Windows.Media.FillRule.</summary>
+      <param name="annfillRule">Fill Rule object to convert</param>
+      <returns>Leadtools.Windows.D2DRendering.D2DFont object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToFontStretch(Leadtools.Annotations.Core.AnnFontStretch)">
+      <summary>Helper method to convert AnnFontStretch to System.Windows.Media.FontStretch.</summary>
+      <param name="annfontStretch">Font Stretch object to convert</param>
+      <returns>System.Windows.Media.FontStretch object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToFontStyle(Leadtools.Annotations.Core.AnnFontStyle)">
+      <summary>Helper method to convert AnnFontStyle to System.Windows.Media.FillRule.</summary>
+      <param name="annfontStyle">Font Style object to convert</param>
+      <returns>System.Windows.Media.FontStyle object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToFontWeight(Leadtools.Annotations.Core.AnnFontWeight)">
+      <summary>Helper method to convert AnnFontWeight to System.Windows.Media.FontWeight.</summary>
+      <param name="annfontWeight">Font Weight object to convert</param>
+      <returns>System.Windows.Media.FontWeight object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.ToSolidBrush(Leadtools.Annotations.Core.AnnSolidColorBrush,System.Double)">
+      <summary>Helper method to convert AnnSolidColorBrush to System.Windows.Media.Brush with opacity value.</summary>
+      <param name="solidBrush">Brush object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <returns>System.Windows.Media.Brush object created.</returns>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.Containers">
+      <summary>Gets the list of containers we are using when drawing multiple containers</summary>
+      <value>The list of containers being used when drawing multiple containers. The default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DRenderingEngine.Context">
+      <summary>Gets the destination d2d surface object to use when rendering the annotation objects.</summary>
+      <value>The destination D2D surface object to use when rendering and the annotation objects. The default value is **null**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DRubberStampObjectRenderer">
+      <summary>Represents a renderer for the rubber stamp annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRubberStampObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DRubberStampObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DRubberStampObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DStampObjectRenderer">
+      <summary>Represents a renderer for the stamp annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DStampObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DStampObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DStampObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DStickyNoteObjectRenderer">
+      <summary>Represents a renderer for the sticky note annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DStickyNoteObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DStickyNoteObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DStickyNoteObjectRenderer.RenderContent(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Overrides RenderContent.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+      <param name="operations">The fixed state operations to use.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DStickyNoteObjectRenderer.RenderSelection(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Overrides RenderSelection.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DTextHiliteObjectRenderer">
+      <summary>Represents a renderer for the text hilite annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextHiliteObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DTextHiliteObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextHiliteObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,D2DSurface,Leadtools.LeadRectD)">
+      <summary>Overrides RenderShape</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The D2DSurafce to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DTextObjectRenderer">
+      <summary>Represents a renderer for the text annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DTextObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextObjectRenderer.GetTextSize(System.String,Leadtools.Annotations.Core.AnnFont,Leadtools.LeadSizeD,System.Boolean)">
+      <summary>Measure the text size and return the result.</summary>
+      <param name="text">Text to measure.</param>
+      <param name="annFont">Font to use in measurement.</param>
+      <param name="layoutArea">Clipping layout area.</param>
+      <param name="wordWrap">A value that indicates whether the text we want to get its size is wrapped or no.</param>
+      <returns>The size of the text in container units.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DTextObjectRenderer.FlipReverseText">
+      <summary>Gets or sets a value that indicate whether the text inside the object is rendered flip or reversed when the object is orientation is changed.</summary>
+      <value>**true** to render the text inside the object flip or reversed when the object is orientation is changed, otherwise; **false**. Default value is **false**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DTextPointerObjectRenderer">
+      <summary>Represents a renderer for the text pointer annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextPointerObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DTextPointerObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextPointerObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DTextRedactionObjectRenderer">
+      <summary>Represents a renderer for the text redaction annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextRedactionObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextRedactionObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Overrides RenderShape</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DTextReviewObjectRenderer">
+      <summary>Base class for all text review object renderers.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextReviewObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextReviewObjectRenderer.RenderContent(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Overrides RenderContent.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+      <param name="operations">The operations performed on the object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextReviewObjectRenderer.RenderSelection(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Overrides RenderSelection.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextReviewObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Renders the shape of a AnnTextReviewObject object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DTextRollupObjectRenderer">
+      <summary>Represents a renderer for the text rollup annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextRollupObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DTextRollupObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextRollupObjectRenderer.GetRenderPoints(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Gets the points that must be rendered for this object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates.</param>
+      <param name="annObject">The object to render.</param>
+      <returns>An array of points to render.</returns>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DTextStrikeoutObjectRenderer">
+      <summary>Represents a renderer for the text strikeout annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextStrikeoutObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DTextStrikeoutObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextStrikeoutObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Overrides RenderShape</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DTextStrikeoutObjectRenderer.Position">
+      <summary>Gets or sets the position the line centered vertically as a percentage value of the total rectangle height.</summary>
+      <value>The position the line centered vertically as a percentage value of the total rectangle height.. Default value is 0.85 meaning 85%. This value must be between 0 and 1.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DTextStrikeoutObjectRenderer.Thickness">
+      <summary>Gets or sets the line thickness of each line as a percentage of the total rectangle height.</summary>
+      <value>The line thickness of each line as a percentage of the total rectangle height. Default value is 0.15 meaning 15 percent. This value must be between 0 and 1.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DTextUnderlineObjectRenderer">
+      <summary>Represents a renderer for the text underline annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextUnderlineObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnD2DTextUnderlineObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DTextUnderlineObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Overrides RenderShape</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DTextUnderlineObjectRenderer.Position">
+      <summary>Gets or sets the position the line centered vertically as a percentage value of the total rectangle height.</summary>
+      <value>The position the line centered vertically as a percentage value of the total rectangle height.. Default value is 0.85 meaning 85%. This value must be between 0 and 1.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DTextUnderlineObjectRenderer.Thickness">
+      <summary>Gets or sets the line thickness of each line as a percentage of the total rectangle height.</summary>
+      <value>The line thickness of each line as a percentage of the total rectangle height. Default value is 0.15 meaning 15 percent. This value must be between 0 and 1.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnD2DThumbStyle">
+      <summary>Base class for all thumb styles.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.Clone">
+      <summary>Creates an exact copy of this AnnD2DThumbStyle.</summary>
+      <returns>An exact copy of this AnnD2DThumbStyle.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.HitTest(Leadtools.LeadPointD,Leadtools.LeadPointD,System.Double)">
+      <summary>Queries the specified location to determine if a test point is over the thumb.</summary>
+      <param name="location">The location of the thumb to test in container coordinates.</param>
+      <param name="testPoint">The point to test in container coordinates.</param>
+      <param name="hitTestBuffer">The hit test buffer is used to make the test point "bigger" to compensate for errors and provide smoother hit-testing. For example, if the buffer value is 2, a square with a length of 4 units around the test point will be used to perform the hit-testing. This value is in container coordinates.</param>
+      <returns>The automation framework will call HitTest repeatedly to determine if a user input location is over a thumb. For example, to determine if the framework should start dragging a side of a selected object or to start rotating it.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.Render(Leadtools.Annotations.Core.IAnnObjectRenderer,Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders this thumb at the specified center location.</summary>
+      <param name="renderer">The object renderer being invoked. Must not be **null**.</param>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="location">The center location of the thumb in container coordinates.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.RenderHitTest(Leadtools.LeadPointD,Leadtools.LeadPointD,System.Double,Leadtools.Annotations.Core.AnnContainerMapper)">
+      <summary>Queries the specified location to determine if a test point is over the thumb using the specified mapper.</summary>
+      <param name="location">The location of the thumb to test in container coordinates.</param>
+      <param name="testPoint">The point to test in container coordinates.</param>
+      <param name="hitTestBuffer">The hit test buffer is used to make the test point "bigger" to compensate for errors and provide smoother hit-testing. For example, if the buffer value is 2, a square with a length of 4 units around the test point will be used to perform the hit-testing. This value is in container coordinates.</param>
+      <param name="mapper">The mapper object to use for converting coordinates. This cannot be **null**.</param>
+      <returns>The automation framework will call RenderHitTest repeatedly to determine if a user input location is over a thumb. For example, to determine if the framework should start dragging a side of a selected object or to start rotating it.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.AddPath(GraphicsPath,Leadtools.LeadRectD)">
+      <summary>Draw the thumb shape.</summary>
+      <param name="path">Destination path.</param>
+      <param name="rect">Bounding rectangle in physical coordinates.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.Create">
+      <summary>Creates a new object of this class.</summary>
+      <returns>A new object of this class.</returns>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.Fill">
+      <summary>Gets or sets the style to use for filling the thumb.</summary>
+      <value>The style to use for filling the thumb. The default value is a white AnnSolidColorBrush object.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.IsVisible">
+      <summary>Gets or sets a value that indicates if this thumb in visible.</summary>
+      <value>**true** if this thumb is visible; otherwise, it is **false**. The default value is **true**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.Renderer">
+      <summary>Gets or sets the renderer for the parent object.</summary>
+      <value>The renderer for the parent object (the owner of this thumb).</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.Size">
+      <summary>Gets or sets the size of this thumb, in container units.</summary>
+      <value>The size of this thumb in, container units. The default value is an empty size structure.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnD2DThumbStyle.Stroke">
+      <summary>Gets or sets the style of stroke to use for drawing the thumb.</summary>
+      <value>The style to use for drawing the thumb. The default value is a black AnnStroke object with a length of 1.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnEllipseObjectRenderer">
+      <summary>Represents a renderer for the ellipse annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnEllipseObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnEllipseObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnEllipseObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnEllipseThumbStyle">
+      <summary>Provides an Ellipse thumb style.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnEllipseThumbStyle.#ctor">
+      <summary>Initializes a new instance of AnnEllipseThumbStyle</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnEllipseThumbStyle.AddPath(GraphicsPath,Leadtools.LeadRectD)">
+      <summary>Draws the thumb shape.</summary>
+      <param name="path">The destination path.</param>
+      <param name="rect">The physical coordinates of the Bounding rectangle.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnEllipseThumbStyle.Create">
+      <summary>Returns a new instance of this class.</summary>
+      <returns>A new instance of this class.</returns>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnEncryptObjectRenderer">
+      <summary>Represents a renderer for the cross product annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnEncryptObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnEncryptObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnEncryptObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use when converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnEncryptObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnFreehandHotspotObjectRenderer">
+      <summary>Represents a renderer for the free hand hotspot annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnFreehandHotspotObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnFreehandHotspotObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnFreehandHotspotObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnHiliteObjectRenderer">
+      <summary>Represents a renderer for the hilite annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnHiliteObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnHiliteObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnHotspotObjectRenderer">
+      <summary>Represents a renderer for hotspot annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnHotspotObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnHotspotObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnHotspotObjectRenderer.ShowAtRunMode">
+      <summary>Gets a value that indicate whether to render this object if the container is in run mode.</summary>
+      <value>**true** to render this object if the container is in run mode, otherwise; **false**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnHotspotObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnImageObjectRenderer">
+      <summary>Represents a renderer for the image annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnImageObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnImageObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnImageObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnImageObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine">
+      <summary>Represents the annotation rendering engine implementation for the Java.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.#ctor">
+      <summary>Initializes a new AnnJavaRenderingEngine.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.attach">
+      <summary>Attaches a container and a context to this drawing engine.</summary>
+      <param name="container">Container to attach</param>
+      <param name="context">Target context where the container will be rendered</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.detach">
+      <summary>Detaches this this rendering engine from the container.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.drawPicture">
+      <summary>Draws an AnnPicture using the properties of this rendering engine.</summary>
+      <param name="picture">The picture to draw.</param>
+      <param name="rc">The destination rectangle.</param>
+      <param name="annObject">The owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.getTextSize">
+      <summary>Returns the size of a text with a AnnFont and clipping size.</summary>
+      <param name="text">The source text string</param>
+      <param name="font">The font to use</param>
+      <param name="layoutArea">Clipping size to use.</param>
+      <returns>The size of the text.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.measureString">
+      <summary>Measures the specified string when drawn using the specified font.</summary>
+      <param name="text">The string to measure.</param>
+      <param name="font">The font that defines the text format of the string.</param>
+      <returns>The size of the string in container coordinates.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.onLoadPicture">
+      <summary>Overrides AnnRenderingEngine.onLoadPicture</summary>
+      <param name="e">The AnnLoadPictureEventArgs event data.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.render">
+      <summary>Renders the container to the specified destination rectangle.</summary>
+      <param name="rc">The destination rectangle.</param>
+      <param name="runMode"></param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnJavaRenderingEngine.renderOnImage">
+      <summary>Renders the container into the specified image.</summary>
+      <param name="container">The source AnnContainer to be rendered.</param>
+      <param name="inputImage">The target RasterImage.</param>
+      <returns>The result image containing the original image data plus the objects of the contaner overlaid on top.</returns>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnLabelRenderer">
+      <summary>Represents a renderer for text labels in this platform.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnLabelRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnLabelRenderer.GetBounds(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Gets the bound of the label.</summary>
+      <param name="mapper">An AnnContainerMapper used for converting the coordinates for rendering.</param>
+      <param name="label">The AnnLabel to be rendered.</param>
+      <param name="operations">An AnnFixedStateOperations value that controls the fixed state of the object to be rendered.</param>
+      <returns>The bounds of the label.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnLabelRenderer.Initialize(Leadtools.Annotations.Core.AnnRenderingEngine)">
+      <summary>Initializes the label renderer with the specified rendering engine.</summary>
+      <param name="renderingEngine">The rendering engine to use. This must be an object that derives from AnnRenderingEngine. The value of this parameter gets set in the RenderingEngine property. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnLabelRenderer.RenderLabel(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the specified label.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="label">The label to render. Must not be **null**.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnLabelRenderer.LabelVisual">
+      <summary>Gets or sets the Windows Runtime TextBlock object to use with this label renderer.</summary>
+      <value>The Windows Runtime TextBlock object to use with this label renderer. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnLabelRenderer.OffsetHeight">
+      <summary>Gets or sets a value that indicates whether to offset the label by its height during rendering.</summary>
+      <value>**true** to offset the label by its height during rendering; otherwise it is false.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnLabelRenderer.RenderingEngine">
+      <summary>Gets the rendering engine associated with this label renderer.</summary>
+      <value>The rendering engine associated with this label renderer. This is the same value passed to Initialize.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnLabelRenderer.RotateWithParent">
+      <summary>Gets or sets a value that indicates whether to rotate the label when annotations viewer get rotated.</summary>
+      <value>**true** to rotate the label when annotations viewer get rotated false.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnMediaObjectRenderer">
+      <summary>Represents a renderer for the cross product annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnMediaObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnMediaObjectRenderer</summary>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnMediaObjectRenderer.ShowAtRunMode">
+      <summary>Gets a value that indicate whether to render this object if the container is in run mode.</summary>
+      <value>**true** to render this object if the container is in run mode, otherwise; **false**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnMediaObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnNoteObjectRenderer">
+      <summary>Represents a renderer for the note annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnNoteObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnNoteObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnNoteObjectRenderer.RenderShadow(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders a drop shadow around the object bounds.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates.</param>
+      <param name="annObject">The object to render.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnNoteObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnObjectRenderer">
+      <summary>Base class for all object renderers.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.AddObject(Leadtools.Annotations.Core.AnnObject)">
+      <summary>Called by the state annotation rendering engine to add the element for this object.</summary>
+      <param name="annObject">The annotation object being added.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.GetRenderPoints(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Gets the points that must be rendered for this object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates.</param>
+      <param name="annObject">The object to render.</param>
+      <returns>An array of points to render.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.Initialize(Leadtools.Annotations.Core.AnnRenderingEngine)">
+      <summary>Initializes this object renderer with the specified rendering engine.</summary>
+      <param name="renderingEngine">The rendering engine to use. This must an object that derives from AnnRenderingEngine. The value of this parameter gets set in the RenderingEngine property. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.RemoveObject(Leadtools.Annotations.Core.AnnObject)">
+      <summary>Called by the state annotation rendering engine to remove the element for this object.</summary>
+      <param name="annObject">The annotation object being removed.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.RenderAlignmentTarget(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders highlight rectangle above the bounds of alignment target object when EnableObjectsAlignment is turned on and the object is target alignment.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render highlight above.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.RenderContent(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the content of an annotation object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render its content.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.RenderLocked(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the lock portion of the object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.RenderRotatePointThumbs(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,Leadtools.LeadPointD,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the rotation points thumbs of an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="rotateCenterLocation">Location of the rotate center to render in container coordinates.</param>
+      <param name="rotateGripperLocation">Location of the rotate gripper to render in container coordinates.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.RenderSelection(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders the selected part of this object if it supports a selection stroke.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.RenderThumbs(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD[],Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders the thumbs of an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="thumbLocations">Locations of the thumbs in container coordinates.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.BeginClipPath">
+      <summary>Sets the current path in the context as a clipping path.</summary>
+      <returns>The path state. This value must be passed to EndClipPath.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.EndClipPath">
+      <summary>Removes the current clipping path from the context.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.EndClipPath(System.Object)">
+      <summary>Removes the current clipping path from the context.</summary>
+      <param name="state">The state object returned from BeginClipPath</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectRenderer.RenderHatchBrushFill(Graphics,Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,GraphicsPath,System.Double)">
+      <summary>Renders the a hatch brush.</summary>
+      <param name="context">Destination context</param>
+      <param name="mapper">The mapper object to use for converting coordinates.</param>
+      <param name="annObject">The owner object to render.</param>
+      <param name="clipPath">Clipping area</param>
+      <param name="angle">Rotation angle</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectRenderer.LabelRenderer">
+      <summary>Gets or sets the object used to render the labels of this object type.</summary>
+      <value>The object used to render the labels of this object type. This must be a default AnnLabelRenderer object or a user derived class. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectRenderer.LocationsThumbStyle">
+      <summary>Gets or sets the style used to render the thumbs of this object type.</summary>
+      <value>The style used to render the thumbs of this object type. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectRenderer.RenderingEngine">
+      <summary>Gets the rendering engine associated with this object renderer.</summary>
+      <value>The rendering engine associated with this object renderer. This is the same value passed to Initialize.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectRenderer.RotateCenterThumbStyle">
+      <summary>Gets or sets the style used to render the rotate center thumb of this object type.</summary>
+      <value>The style used to render the rotate center thumb of this object type. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectRenderer.RotateGripperThumbStyle">
+      <summary>Gets or sets the style used to render the rotate gripper thumb of this object type.</summary>
+      <value>The style used to render the rotate gripper thumb of this object type. Default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectRenderer.ClipPath">
+      <summary>Gets or sets a value that indicates whether a clipping path has been set.</summary>
+      <value>**true** if a clipping path has been set; **false**, otherwise. The default value is **false**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnObjectVisual">
+      <summary>Describes the visual and editing parts of an object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectVisual.#ctor">
+      <summary>Initializes a new instance of AnnObjectVisual</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectVisual.ContainsEditingComponents">
+      <summary>Gets a value that indicates whether this object has any editing components.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnObjectVisual.ContainsVisualComponents">
+      <summary>Gets a value that indicates whether this object has any visual components.</summary>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectVisual.EditingComponents">
+      <summary>Gets the list of frame work elements that specify the object editing components (thumbnails, rotate handles, etc.).</summary>
+      <value>A list of frame work elements that specify the object editing components (thumbnails, rotate handles, etc.).</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnObjectVisual.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnPointerObjectRenderer">
+      <summary>Represents a renderer for the pointer annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPointerObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPointerObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnPointerObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnPointObjectRenderer">
+      <summary>Represents a renderer for the point annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPointObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPointObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnPointObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnPolylineObjectRenderer">
+      <summary>Represents a renderer for the polyline line annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPolylineObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPolylineObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnPolylineObjectRenderer.UseSplineMode">
+      <summary>Gets or sets the value indicating whether to use spline curves instead of straight lines when rendering polylines.</summary>
+      <value>**true** to use spline curves instead of straight lines when rendering polylines, **false** otherwise. Default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnPolylineObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnPolyRulerObjectRenderer">
+      <summary>Represents a renderer for the poly ruler annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPolyRulerObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPolyRulerObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPolyRulerObjectRenderer.DrawGauge(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,Leadtools.LeadPointD,Leadtools.LeadLengthD,Leadtools.Annotations.Core.AnnStroke,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the gauge portion of the ruler.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="startPoint">The first (starting) point of the ruler.</param>
+      <param name="endPoint">The second (stopping) point of the ruler.</param>
+      <param name="gaugeLength">The length of the gauge.</param>
+      <param name="stroke">The stroke to use when drawing the ruler.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPolyRulerObjectRenderer.DrawLengthText(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the length text of the ruler object.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="label">The text label to draw.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnPolyRulerObjectRenderer.DrawTickMarks(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,Leadtools.LeadPointD,Leadtools.LeadLengthD,Leadtools.Annotations.Core.AnnUnit,Leadtools.Annotations.Core.AnnStroke,Leadtools.Annotations.Core.AnnFixedStateOperations,System.Double,System.Double)">
+      <summary>Draws the tick marks portion of the ruler.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="startPoint">The first (starting) point of the ruler.</param>
+      <param name="endPoint">The second (stopping) point of the ruler.</param>
+      <param name="tickMarkLength">The length of the tick marks.</param>
+      <param name="unit">The unit of the ruler.</param>
+      <param name="stroke">The stroke to use when drawing the ruler.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnPolyRulerObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnProtractorObjectRenderer">
+      <summary>Represents a renderer for the protractor annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnProtractorObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnProtractorObjectRenderer.DrawAngleText(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the angle text of the protractor object.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="label">The text label to draw.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnProtractorObjectRenderer.GetAngleText(System.Double,System.Double,Leadtools.Annotations.Core.AnnAngularUnit,Leadtools.Annotations.Core.AnnAngularUnit)">
+      <summary>Gets the text to use for the given angle.</summary>
+      <param name="angle">The angle value in \unit\.</param>
+      <param name="precision">The precision of \angle\. Refer to AnnProtractorObject.AnglePrecision for valid values.</param>
+      <param name="unit">The unit of \angle\.</param>
+      <param name="unitsAbbreviation">The unit abbreviation to use.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnProtractorObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnProtractorObjectRenderer.DrawArc(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,System.Double,System.Double,Leadtools.LeadLengthD,Leadtools.Annotations.Core.AnnStroke,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the arc portion of the protractor object.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="center">The arc center.</param>
+      <param name="startAngle">The start angle of the arc, in degrees.</param>
+      <param name="sweepAngle">The sweep angle of the arc, in degrees.</param>
+      <param name="radius">The radius of the arc.</param>
+      <param name="stroke">The stroke to use when drawing the arc.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnProtractorObjectRenderer.DrawLengthText(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnLabel,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Draws the length text of the protractor object.</summary>
+      <param name="mapper">The mapper to use for rendering.</param>
+      <param name="label">The text label to draw.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnProtractorObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnRectangleObjectRenderer">
+      <summary>Represents a renderer for rectangular annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnRectangleObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnRectangleObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnRectangleObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnRectangleThumbStyle">
+      <summary>Rectangle thumb style.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnRectangleThumbStyle.#ctor">
+      <summary>Initializes a new instance of AnnRectangleThumbStyle</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnRectangleThumbStyle.AddPath(GraphicsPath,Leadtools.LeadRectD)">
+      <summary>Draws the thumb shape.</summary>
+      <param name="path">The destination path.</param>
+      <param name="rect">The physical coordinates of the bounding rectangle.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnRectangleThumbStyle.Create">
+      <summary>Returns a new instance of this class.</summary>
+      <returns>A new instance of this class.</returns>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnRubberStampObjectRenderer">
+      <summary>Represents a renderer for the rubber stamp annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnRubberStampObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnRubberStampObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnRubberStampObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnStampObjectRenderer">
+      <summary>Represents a renderer for the stamp annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnStampObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnStampObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnStampObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnStickyNoteObjectRenderer">
+      <summary>Represents a renderer for the sticky note annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnStickyNoteObjectRenderer.#ctor">
+      <summary>Initialize a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnStickyNoteObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnStickyNoteObjectRenderer.RenderContent(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Overrides RenderContent.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+      <param name="operations">The fixed state operations to use.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnStickyNoteObjectRenderer.RenderSelection(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Overrides RenderSelection.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnStickyNoteObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnTextHiliteObjectRenderer">
+      <summary>Represents a renderer for the text hilite annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextHiliteObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnTextHiliteObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextHiliteObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Overrides Render</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextHiliteObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Overrides RenderShape</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextHiliteObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnTextObjectRenderer">
+      <summary>Represents a renderer for the text annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextObjectRenderer.GetTextSize(System.String,Leadtools.Annotations.Core.AnnFont,Leadtools.LeadSizeD)">
+      <summary>Measure the text size and return the result.</summary>
+      <param name="text">Text to measure.</param>
+      <param name="annFont">Font to use in measurement.</param>
+      <param name="layoutArea">Clipping layout area.</param>
+      <returns>The size of the text in container units.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextObjectRenderer.FixedPadding">
+      <summary>Indicate whether to use the padding value of the text object without any transformation.</summary>
+      <value>**true** to use the padding value of the text object without any transformation, otherwise; **false**. Default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextObjectRenderer.FlipReverseText">
+      <summary>Gets or sets a value that indicate whether the text inside the object is rendered flip or reversed when the object is orientation is changed.</summary>
+      <value>**true** to render the text inside the object flip or reversed when the object is orientation is changed, otherwise; **false**. Default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnTextPointerObjectRenderer">
+      <summary>Represents a renderer for the text pointer annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextPointerObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextPointerObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextPointerObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnTextRedactionObjectRenderer">
+      <summary>Represents a renderer for the text redaction annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextRedactionObjectRenderer.#ctor">
+      <summary>Initialize a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextRedactionObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Overrides Render</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextRedactionObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Overrides RenderShape</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextRedactionObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnTextReviewObjectRenderer">
+      <summary>Base class for all text review object renderers.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextReviewObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextReviewObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextReviewObjectRenderer.RenderContent(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Overrides RenderContent.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+      <param name="operations">The operations performed on the object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextReviewObjectRenderer.RenderSelection(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Overrides RenderSelection.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. This value must not be **null**.</param>
+      <param name="annObject">The object to render.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextReviewObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Renders the shape of a AnnTextReviewObject object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextReviewObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnTextRollupObjectRenderer">
+      <summary>Represents a renderer for the text rollup annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextRollupObjectRenderer.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextRollupObjectRenderer.GetRenderPoints(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Gets the points that must be rendered for this object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates.</param>
+      <param name="annObject">The object to render.</param>
+      <returns>An array of points to render.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextRollupObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnTextStrikeoutObjectRenderer">
+      <summary>Represents a renderer for the text strikeout annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextStrikeoutObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnTextStrikeoutObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextStrikeoutObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Renders an object.</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextStrikeoutObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Overrides RenderShape</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextStrikeoutObjectRenderer.Position">
+      <summary>Gets or sets the position the line centered vertically as a percentage value of the total rectangle height.</summary>
+      <value>The position the line centered vertically as a percentage value of the total rectangle height.. Default value is 0.85 meaning 85%. This value must be between 0 and 1.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextStrikeoutObjectRenderer.Thickness">
+      <summary>Gets or sets the line thickness of each line as a percentage of the total rectangle height.</summary>
+      <value>The line thickness of each line as a percentage of the total rectangle height. Default value is 0.15 meaning 15 percent. This value must be between 0 and 1.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextStrikeoutObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnTextUnderlineObjectRenderer">
+      <summary>Represents a renderer for the text underline annotation object.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextUnderlineObjectRenderer.#ctor">
+      <summary>Initializes a new instance of AnnTextUnderlineObjectRenderer</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextUnderlineObjectRenderer.Render(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Overrides Render</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annObject">The object to render. Must not be **null**.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnTextUnderlineObjectRenderer.RenderShape(Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.Annotations.Core.AnnTextReviewObject,Graphics,Leadtools.LeadRectD)">
+      <summary>Overrides RenderShape</summary>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="annTextReviewObject">The object to render. Must not be **null**.</param>
+      <param name="context">The graphics context to use when rendering the object.</param>
+      <param name="rect">Rectangle area to render this shape.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextUnderlineObjectRenderer.Position">
+      <summary>Gets or sets the position the line centered vertically as a percentage value of the total rectangle height.</summary>
+      <value>The position the line centered vertically as a percentage value of the total rectangle height.. Default value is 0.85 meaning 85%. This value must be between 0 and 1.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextUnderlineObjectRenderer.Thickness">
+      <summary>Gets or sets the line thickness of each line as a percentage of the total rectangle height.</summary>
+      <value>The line thickness of each line as a percentage of the total rectangle height. Default value is 0.15 meaning 15 percent. This value must be between 0 and 1.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnTextUnderlineObjectRenderer.VisualComponents">
+      <summary>Gets the list of frame work elements that specify the object visual components.</summary>
+      <value>A list of frame work elements that specify the object visual components.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnThumbStyle">
+      <summary>Base class for all thumb styles.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnThumbStyle.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnThumbStyle.Clone">
+      <summary>Creates an exact copy of this AnnThumbStyle.</summary>
+      <returns>An exact copy of this AnnThumbStyle.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnThumbStyle.HitTest(Leadtools.LeadPointD,Leadtools.LeadPointD,System.Double)">
+      <summary>Queries the specified location to determine if a test point is over the thumb.</summary>
+      <param name="location">The location of the thumb to test in container coordinates.</param>
+      <param name="testPoint">The point to test in container coordinates.</param>
+      <param name="hitTestBuffer">The hit test buffer is used to make the test point "bigger" to compensate for errors and provide smoother hit-testing. For example, if the buffer value is 2, a square with a length of 4 units around the test point will be used to perform the hit-testing. This value is in container coordinates.</param>
+      <returns>The automation framework will call HitTest repeatedly to determine if a user input location is over a thumb. For example, to determine if the framework should start dragging a side of a selected object or to start rotating it.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnThumbStyle.Render(Leadtools.Annotations.Core.IAnnObjectRenderer,Leadtools.Annotations.Core.AnnContainerMapper,Leadtools.LeadPointD,Leadtools.Annotations.Core.AnnFixedStateOperations)">
+      <summary>Renders this thumb at the specified center location.</summary>
+      <param name="renderer">The object renderer being invoked. Must not be **null**.</param>
+      <param name="mapper">The mapper object to use for converting coordinates. Must not be **null**.</param>
+      <param name="location">The center location of the thumb in container coordinates.</param>
+      <param name="operations">The fixed state of the owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnThumbStyle.RenderHitTest(Leadtools.LeadPointD,Leadtools.LeadPointD,System.Double,Leadtools.Annotations.Core.AnnContainerMapper)">
+      <summary>Queries the specified location to determine if a test point is over the thumb using the specified mapper.</summary>
+      <param name="location">The location of the thumb to test in container coordinates.</param>
+      <param name="testPoint">The point to test in container coordinates.</param>
+      <param name="hitTestBuffer">The hit test buffer is used to make the test point "bigger" to compensate for errors and provide smoother hit-testing. For example, if the buffer value is 2, a square with a length of 4 units around the test point will be used to perform the hit-testing. This value is in container coordinates.</param>
+      <param name="mapper">The mapper object to use for converting coordinates. This cannot be **null**.</param>
+      <returns>The automation framework will call RenderHitTest repeatedly to determine if a user input location is over a thumb. For example, to determine if the framework should start dragging a side of a selected object or to start rotating it.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnThumbStyle.AddPath(GraphicsPath,Leadtools.LeadRectD)">
+      <summary>Draw the thumb shape.</summary>
+      <param name="path">Destination path.</param>
+      <param name="rect">Bounding rectangle in physical coordinates.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnThumbStyle.Create">
+      <summary>Creates a new object of this class.</summary>
+      <returns>A new object of this class.</returns>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnThumbStyle.Fill">
+      <summary>Gets or sets the style to use for filling the thumb.</summary>
+      <value>The style to use for filling the thumb. The default value is a white AnnSolidColorBrush object.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnThumbStyle.IsVisible">
+      <summary>Gets or sets a value that indicates if this thumb in visible.</summary>
+      <value>**true** if this thumb is visible; otherwise, it is **false**. The default value is **true**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnThumbStyle.Renderer">
+      <summary>Gets or sets the renderer for the parent object.</summary>
+      <value>The renderer for the parent object (the owner of this thumb).</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnThumbStyle.Size">
+      <summary>Gets or sets the size of this thumb, in container units.</summary>
+      <value>The size of this thumb in, container units. The default value is an empty size structure.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnThumbStyle.Stroke">
+      <summary>Gets or sets the style of stroke to use for drawing the thumb.</summary>
+      <value>The style to use for drawing the thumb. The default value is a black AnnStroke object with a length of 1.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnUniversalRenderingEngine">
+      <summary>A new LTAnnUniversalRenderingEngine.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnUniversalRenderingEngine.#ctor">
+      <summary>Initializes a new LTAnnUniversalRenderingEngine with the specified parameters.</summary>
+      <param name="container">The annotation container that contains the objects to render.</param>
+      <param name="context">The destination context to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnUniversalRenderingEngine.Context">
+      <summary>Gets the context that is used for rendering annotation objects.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnUniversalRenderingEngine.DrawPicture">
+      <summary>Draws a LTAnnPicture using the properties of this rendering engine.</summary>
+      <param name="picture">The picture to draw.</param>
+      <param name="rc">The destination rectangle.</param>
+      <param name="annObject">The owner object.</param>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine">
+      <summary>Represents the annotation rendering engine implementation for the Windows Forms platform.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.#ctor">
+      <summary>Initializes a new AnnWinFormsRenderingEngine.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.#ctor(Leadtools.Annotations.Core.AnnContainer,Graphics)">
+      <summary>Initializes a new AnnWinFormsRenderingEngine with the specified parameters.</summary>
+      <param name="container">The annotation container that contains the objects to draw.</param>
+      <param name="context">The destination graphics context to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.Attach(Leadtools.Annotations.Core.AnnContainer,Graphics)">
+      <summary>Attaches this rendering engine to an annotation container and a drawing context (Graphics).</summary>
+      <param name="container">The annotation container that contains the objects to draw.</param>
+      <param name="context">The destination graphics context to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.Attach(Leadtools.Annotations.Core.AnnContainer,System.Object)">
+      <summary>Attaches a container and a context to this drawing engine.</summary>
+      <param name="container">Container to attach</param>
+      <param name="context">Target context where the container will be rendered</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.Detach">
+      <summary>Detaches this this drawing engine from the container.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.DrawPicture(Leadtools.Annotations.Core.AnnPicture,Leadtools.LeadRectD,Leadtools.Annotations.Core.AnnObject)">
+      <summary>Helper method to draw an AnnPicture using the properties of this rendering engine.</summary>
+      <param name="picture">The picture to draw.</param>
+      <param name="rc">The destination rectangle.</param>
+      <param name="annObject">The owner object.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.FromFont(Font)">
+      <summary>Helper method to convert System.Drawing.Font to AnnFont.</summary>
+      <param name="font">Font object to convert</param>
+      <returns>AnnFont object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.GetTextSize(System.String,Leadtools.Annotations.Core.AnnFont,Leadtools.LeadSizeD)">
+      <summary>Returns the size of a text with a AnnFont and clipping size.</summary>
+      <param name="text">The source text string</param>
+      <param name="font">The font to use</param>
+      <param name="layoutArea">Clipping size to use.</param>
+      <returns>The size of the text.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.MeasureString(System.String,Leadtools.Annotations.Core.AnnFont)">
+      <summary>Measures the specified string when drawn with the specified font.</summary>
+      <param name="text">String to measure.</param>
+      <param name="font">Font that defines the text format of the string.</param>
+      <returns>The size of the string in container coordinates.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.OnLoadPicture(Leadtools.Annotations.Core.AnnLoadPictureEventArgs)">
+      <summary>Overrides OnLoadPicture.</summary>
+      <param name="e">AnnLoadPictureEventArgsEvent data</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.RenderGrid(System.Boolean,Leadtools.Annotations.Core.AnnContainer)">
+      <summary>Renders overlaying grid into specified container.</summary>
+      <param name="runMode"></param>
+      <param name="container">The target container.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.RenderOnImage(Leadtools.Annotations.Core.AnnContainer,Leadtools.RasterImage)">
+      <summary>Renders the container into the specified image.</summary>
+      <param name="container">The source AnnContainer to be rendered.</param>
+      <param name="inputImage">The target RasterImage.</param>
+      <returns>The result image containing the original image data plus the objects of the container overlaid on top.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush)">
+      <summary>Helper method to convert AnnBrush to System.Drawing.Brush.</summary>
+      <param name="brush">Brush object to convert</param>
+      <returns>System.Drawing.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Double)">
+      <summary>Helper method to convert AnnBrush to System.Drawing.Brush.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="opacity">The desired opacity of the resulting brush. Values can be from 0 to 1.0</param>
+      <returns>System.Drawing.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Double,Leadtools.LeadRectD)">
+      <summary>Helper method to convert AnnBrush to System.Drawing.Brush with opacity and bounding rectangle values.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <param name="brushBounds">The bounding rectangle of the brush in pixels.</param>
+      <returns>System.Drawing.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Int32)">
+      <summary>Helper method to convert AnnBrush to System.Drawing.Brush with alpha value.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="alpha">Alpha value to use (0 to 255).</param>
+      <returns>System.Drawing.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Int32,System.Double)">
+      <summary>Helper method to convert AnnBrush to System.Drawing.Brush using either an alpha or opacity value.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="alpha">The desired alpha of the resulting brush. Values can be from 0 to 255</param>
+      <param name="opacity">The desired opacity of the resulting brush. Values can be from 0 to 1.0</param>
+      <returns>System.Drawing.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Int32,System.Double,Leadtools.LeadRectD)">
+      <summary>Helper method to convert AnnBrush to System.Drawing.Brush with alpha, opacity and bounding rectangle values.</summary>
+      <param name="brush">Brush object to convert</param>
+      <param name="alpha">Alpha value to use (0 to 255).</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <param name="brushBounds">The bounding rectangle of the brush in pixels.</param>
+      <returns>System.Drawing.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToFont(Leadtools.Annotations.Core.AnnFont)">
+      <summary>Helper method to convert AnnFont to System.Drawing.Font.</summary>
+      <param name="font">Font object to convert</param>
+      <returns>System.Drawing.Font object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToLinearGradientBrush(Leadtools.Annotations.Core.AnnLinearGradientBrush,System.Double,Leadtools.LeadRectD)">
+      <summary>Helper method to convert AnnLinearGradientBrush to System.Drawing.Brush with opacity and bounding rectangle values.</summary>
+      <param name="linearGradientBrush">Brush object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <param name="brushBounds">The bounding rectangle of the brush in pixels.</param>
+      <returns>System.Drawing.Brush object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToPen(Leadtools.Annotations.Core.AnnStroke)">
+      <summary>Helper method to convert AnnStroke to System.Drawing.Pen.</summary>
+      <param name="stroke">Stroke object to convert</param>
+      <returns>System.Drawing.Pen object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToPen(Leadtools.Annotations.Core.AnnStroke,System.Double)">
+      <summary>Helper method to convert AnnStroke to System.Drawing.Pen using an opacity.</summary>
+      <param name="stroke">Stroke object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <returns>System.Drawing.Pen object created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToPoints(Leadtools.LeadPointD[])">
+      <summary>Helper method to convert array of LeadPointD to array of System.Drawing.PointF.</summary>
+      <param name="points">The array of LeadPointD to convert.</param>
+      <returns>Array of System.Drawing.PointF created.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.ToSolidBrush(Leadtools.Annotations.Core.AnnSolidColorBrush,System.Double)">
+      <summary>Helper method to convert AnnSolidColorBrush to System.Drawing.Brush with opacity value.</summary>
+      <param name="solidBrush">Brush object to convert</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <returns>System.Drawing.Brush object created.</returns>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnWinFormsRenderingEngine.Context">
+      <summary>Gets the destination graphics context object to use when rendering the annotation objects.</summary>
+      <value>The destination graphics context object to use when rendering and the annotation objects. The default value is **null**.</value>
+    </member>
+    <member name="T:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine">
+      <summary>Represents the annotation rendering engine implementation for the Windows Runtime platform.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.#ctor(Leadtools.Annotations.Core.AnnContainer,Canvas)">
+      <summary>Initializes a new AnnWinRTRenderingEngine with the specified parameters.</summary>
+      <param name="container">The annotation container that contains the objects to draw.</param>
+      <param name="context">The destination canvas context to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.Attach(Leadtools.Annotations.Core.AnnContainer,Canvas)">
+      <summary>Attaches this rendering engine to an annotation container and a context (Canvas).</summary>
+      <param name="container">The annotation container that contains the objects to draw.</param>
+      <param name="context">The destination context (canvas) to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.Attach(Leadtools.Annotations.Core.AnnContainer,System.Object)">
+      <summary>Attaches this rendering engine to an annotation container and a context (Canvas).</summary>
+      <param name="container">The annotation container that contains the objects to draw.</param>
+      <param name="context">The destination context (canvas) to render the annotations to.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.AttachContainer(Leadtools.Annotations.Core.AnnContainer)">
+      <summary>Attaches this rendering engine to an annotation container and a context (Canvas).</summary>
+      <param name="container">The annotation container that contains the objects to draw.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.Burn">
+      <summary>Burns the annotation objects in AnnContainer to the destination context using the existing destination rectangle and resolution (DPI).</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.Detach">
+      <summary>Detaches this this drawing engine from the container.</summary>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.MeasureString(System.String,Leadtools.Annotations.Core.AnnFont)">
+      <summary>Measures the specified string when drawn with the specified font.</summary>
+      <param name="text">String to measure.</param>
+      <param name="font">Font that defines the text format of the string.</param>
+      <returns>The size of the string in container coordinates.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.Render(Leadtools.LeadRectD,System.Boolean)">
+      <summary>Renders the container to the specified destination rectangle.</summary>
+      <param name="clipRect">The destination clip rectangle LeadRectD in container coordinates. The engine will only render into this area. Pass LeadRectD.Empty to not use a clip rectangle.</param>
+      <param name="clear"></param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.RenderContainer(Leadtools.LeadRectD,Leadtools.Annotations.Core.AnnContainer,System.Boolean)">
+      <summary>Renders a container using the specified clip rectangle.</summary>
+      <param name="clipRect">The destination clip rectangle LeadRectD, in container coordinates. The engine will only render into this area. The destination clip rectangle LeadRectD in container coordinates. The engine will only render into this area. If you do not want to use a clip rectangle, pass LeadRectD.Empty.</param>
+      <param name="container">The container to render.</param>
+      <param name="runMode"></param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.RenderLayer(Leadtools.LeadRectD,Leadtools.Annotations.Core.AnnLayer,Leadtools.Annotations.Core.AnnContainer,System.Boolean)">
+      <summary>Renders an individual layer using the specified clip rectangle.</summary>
+      <param name="clipRect">The destination clip rectangle LeadRectD in container coordinates. The engine will only render into this area. The destination clip rectangle LeadRectD is in container coordinates. The engine will only render into this area. If you do not want to use a clip rectangle, pass Empty.</param>
+      <param name="layer">The layer to render.</param>
+      <param name="container">The owner container.</param>
+      <param name="runMode"></param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.RenderLayers(Leadtools.LeadRectD,Leadtools.Annotations.Core.AnnLayerCollection,Leadtools.Annotations.Core.AnnContainer,System.Boolean)">
+      <summary>Renders annotation layers using the specified clip rectangle.</summary>
+      <param name="clipRect">The destination clip rectangle LeadRectD in container coordinates. The engine will only render into this area. Pass LeadRectD.Empty to not use a clip rectangle.</param>
+      <param name="layers">The layers to render.</param>
+      <param name="container">The owner container.</param>
+      <param name="runMode"></param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.RenderOnImage(Leadtools.Annotations.Core.AnnContainer,Leadtools.RasterImage)">
+      <summary>Renders the container into the specified image.</summary>
+      <param name="container">The source AnnContainer to be rendered.</param>
+      <param name="inputImage">The target RasterImage.</param>
+      <returns>The result image containing the original image data plus the objects of the container overlaid on top.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.SetContainersList(Leadtools.Annotations.Core.AnnContainerCollection)">
+      <summary>Sets the AnnContainerCollection for this rendering engine.</summary>
+      <param name="containers">The AnnContainerCollection to set for this rendering engine.</param>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush)">
+      <summary>Converts the specified AnnBrush to a ImageBrush.</summary>
+      <param name="brush">The AnnBrush to convert.</param>
+      <returns>A ImageBrush.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Double)">
+      <summary>Converts the specified AnnBrush to a ImageBrush using an opacity.</summary>
+      <param name="brush">The AnnBrush to convert.</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <returns>A ImageBrush.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Int32)">
+      <summary>Converts the specified AnnBrush to a ImageBrush with alpha value.</summary>
+      <param name="brush">The AnnBrush to convert.</param>
+      <param name="alpha">Alpha value to use (0 to 255).</param>
+      <returns>A ImageBrush.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToBrush(Leadtools.Annotations.Core.AnnBrush,System.Int32,System.Double)">
+      <summary>Converts the specified AnnBrush to a ImageBrush using an alpha and opacity.</summary>
+      <param name="brush">The AnnBrush to convert.</param>
+      <param name="alpha">Alpha value to use (0 to 255).</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+      <returns>A ImageBrush.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToFillRule(Leadtools.Annotations.Core.AnnFillRule)">
+      <summary>Converts the specified AnnFillRule to a FillRule.</summary>
+      <param name="annfillRule">The AnnFillRule to convert.</param>
+      <returns>A **FillRule**.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToFontStretch(Leadtools.Annotations.Core.AnnFontStretch)">
+      <summary>Converts the specified AnnFontStretch to a FontStretch.</summary>
+      <param name="annfontStretch">The AnnFontStretch to convert.</param>
+      <returns>A **FontStretch**.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToFontStyle(Leadtools.Annotations.Core.AnnFontStyle)">
+      <summary>Converts the specified AnnFontStyle to a FontStyle.</summary>
+      <param name="annfontStyle">The AnnFontStyle to convert.</param>
+      <returns>A **FontStyle**.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToFontWeight(Leadtools.Annotations.Core.AnnFontWeight)">
+      <summary>Converts the specified AnnFontWeight to a FontWeight.</summary>
+      <param name="annfontWeight">The AnnFontWeight to convert.</param>
+      <returns>A **FontWeight**.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToPenLineCap(Leadtools.Annotations.Core.AnnStrokeLineCap)">
+      <summary>Converts the specified AnnStrokeLineCap into a PenLineCap.</summary>
+      <param name="annStrokeLineCap">The AnnStrokeLineCap to convert.</param>
+      <returns>A PenLineCap.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToPenLineJoin(Leadtools.Annotations.Core.AnnStrokeLineJoin)">
+      <summary>Converts the specified AnnStrokeLineJoin into a PenLineJoin.</summary>
+      <param name="annStrokeLineJoin">The AnnStrokeLineJoin to convert.</param>
+      <returns>A PenLineJoin.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToStrokeDashArray(System.Double[])">
+      <summary>Converts the double\[\] to a DoubleCollection.</summary>
+      <param name="annStrokeDashArray">The double\[\] to convert.</param>
+      <returns>A DoubleCollection.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.ToTextDecorations(Leadtools.Annotations.Core.AnnTextDecorations)">
+      <summary>Converts the specified AnnTextDecorations into a TextDecorationCollection.</summary>
+      <param name="textDecorations">The AnnTextDecorations to convert.</param>
+      <returns>A TextDecorationCollection.</returns>
+    </member>
+    <member name="M:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.UpdateShapeStroke(Shape,Leadtools.Annotations.Core.AnnStroke,System.Double)">
+      <summary>Sets the stroke of Windows.UI.Xaml.Shapes using an opacity.</summary>
+      <param name="shape">The Windows.UI.Xaml.Shapes to set stroke to.</param>
+      <param name="stroke">The AnnStroke we want to set to the Windows.UI.Xaml.Shapes</param>
+      <param name="opacity">Opacity value to use. Values can be from 0 to 1.0.</param>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.Context">
+      <summary>Gets or sets the destination canvas context object to use when rendering the annotation objects.</summary>
+      <value>The destination canvas context object to use when rendering and the annotation objects. The default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Annotations.Rendering.AnnWinRTRenderingEngine.Erase">
+      <summary>Gets or sets a value that indicate whether to clear the background of Context before rendering.</summary>
+      <value>**true** to clear the background of Context before rendering, otherwise; **false**.</value>
+    </member>
+  </members>
+</doc>
