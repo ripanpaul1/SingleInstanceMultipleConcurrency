@@ -1,2 +1,6 @@
 # Visual Studio 2015/2017 cache/options directory
 *.vs/
+IISHostLeadTools/bin/
+IISHostLeadTools/obj/
+OcrServiceClient/bin/
+OcrServiceClient/obj/
